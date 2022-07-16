@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": { "es2017": true },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": ["off", { "extensions": [",ts", ".tsx"] }],
+    "react/function-component-definition": "off"
+  }
 }
