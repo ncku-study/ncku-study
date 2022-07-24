@@ -1,7 +1,7 @@
-import { useCallback } from 'react';
+import { FormEvent, useCallback } from 'react';
 
 export default function Login() {
-  const onSubmit = useCallback(async (event: Event) => {
+  const onSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const body = {

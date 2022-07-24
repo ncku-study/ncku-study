@@ -1,22 +1,34 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Dialect, Sequelize } from 'sequelize';
-import config from '../../config/database';
+import { Sequelize } from 'sequelize-typescript';
+import { Dialect } from 'sequelize/types';
+
+import config from '~/config/database';
+import Category from './Category';
+import Statistic from './Statistic';
+import Study from './Study';
+import StudyCategory from './StudyCategory';
+import StudyStatistic from './StudyStatistic';
 
 const env = process.env.NODE_ENV || 'development';
 
-const connection = new Sequelize(
-  config[env].database!,
-  config[env].username!,
-  config[env].password!,
-  {
-    host: config[env].host,
-    dialect: config[env].dialect as Dialect,
-    define: {
-      charset: 'utf8mb4',
-      collate: 'utf8mb4_unicode_ci',
-    },
-  }
-);
+const connection = new Sequelize({
+  database: config[env].database,
+  dialect: config[env].dialect as Dialect,
+  username: config[env].username,
+  password: config[env].password,
+  host: config[env].host,
+  define: {
+    charset: 'utf8mb4',
+    collate: 'utf8mb4_unicode_ci',
+  },
+});
+
+connection.addModels([
+  Study,
+  Category,
+  Statistic,
+  StudyCategory,
+  StudyStatistic,
+]);
 
 // CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 // connection.query(

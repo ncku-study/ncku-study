@@ -1,21 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
-import {
-  Study,
-  Category,
-  Statistic,
-  StudyStatistic,
-  StudyCategory,
-} from 'database/models';
-import connection from 'database/models/connection';
+
+import { Category, Statistic, Study } from '@db/models';
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router.get(async (req, res) => {
   const {
-    query: { from, num, cate, stat },
-    method,
-    body,
+    query: { cate, stat },
   } = req;
 
   const studies = await Study.findAll({
@@ -45,18 +37,18 @@ router.get(async (req, res) => {
         confirm: study.confirm,
         content: study.content,
         timestamp: study.createdAt,
-        category: study.Categories.map((cate) => {
+        category: study.categories.map((category) => {
           return {
-            id: cate.id,
-            name: cate.name,
+            id: category.id,
+            name: category.name,
           };
         }),
-        statistic: study.Statistics.map((stat) => {
+        statistic: study.statistics.map((statistic) => {
           return {
-            id: stat.id,
-            name: stat.name,
-            type: stat.type,
-            value: stat.StudyStatistic.value,
+            id: statistic.id,
+            name: statistic.name,
+            type: statistic.type,
+            value: statistic.StudyStatistic.value,
           };
         }),
       };

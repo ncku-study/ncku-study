@@ -1,7 +1,8 @@
 {
-  "env": { "es2017": true },
+  "root": true,
+  "env": { "es6": true },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -11,6 +12,21 @@
   ],
   "rules": {
     "react/jsx-filename-extension": ["off", { "extensions": [",ts", ".tsx"] }],
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "import/no-anonymous-default-export": [
+      "error",
+      { "allowArrowFunction": true }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-cycle": "off"
   }
 }

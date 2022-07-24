@@ -5,14 +5,11 @@ import { NextApiRequest, NextApiResponse } from 'next';
 async function route(req: NextApiRequest, res: NextApiResponse) {
   const { username } = await req.body;
 
-  if (username !== 'sth') {
-    res.statusCode = 403;
-    res.json({ status: 'unauthorized' });
-    return;
-  }
+  req.session.user = username;
+  await req.session.save();
 
   res.statusCode = 200;
-  res.json({ status: 'authorized' });
+  res.send({ status: 'succeeded' });
 }
 
 export default withIronSessionApiRoute(route, sessionOptions);

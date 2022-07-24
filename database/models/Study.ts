@@ -1,32 +1,56 @@
-/* eslint-disable no-use-before-define */
-import Category from 'databasess/models/Category';
 import {
-  CreationOptional,
-  DataTypes,
-  HasManyGetAssociationsMixin,
-  InferAttributes,
-  InferCreationAttributes,
+  BelongsToMany,
+  Column,
+  CreatedAt,
+  DataType,
+  Default,
   Model,
-  NonAttribute,
-} from 'sequelize';
-import connection from './connection';
+  PrimaryKey,
+  Table,
+  UpdatedAt,
+} from 'sequelize-typescript';
 
-class Study extends Model<
-  InferAttributes<Study, { omit: 'categories' }>,
-  InferCreationAttributes<Study, { omit: 'categories' }>
-> {
-  declare id: string;
-  declare title: string;
-  declare major: string;
-  declare year: CreationOptional<number>;
-  declare confirm: CreationOptional<number>;
-  declare content: CreationOptional<string>;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
+import Category from './Category';
+import Statistic from './Statistic';
+import StudyCategory from './StudyCategory';
+import StudyStatistic from './StudyStatistic';
 
-  declare getCategories: HasManyGetAssociationsMixin<Category>;
+@Table({
+  freezeTableName: true,
+  underscored: true,
+})
+class Study extends Model {
+  @PrimaryKey
+  @Column(DataType.UUID)
+  id: string;
 
-  declare categories?: NonAttribute<Category[]>;
+  @Column
+  title: string;
+
+  @Column
+  major: string;
+
+  @Column
+  year: number;
+
+  @Default(0)
+  @Column(DataType.TINYINT)
+  confirm: number;
+
+  @Column(DataType.TEXT)
+  content: string;
+
+  @CreatedAt
+  createdAt: Date;
+
+  @UpdatedAt
+  updatedAt: Date;
+
+  @BelongsToMany(() => Category, () => StudyCategory)
+  categories: Array<Category & { StudyCategory: StudyCategory }>;
+
+  @BelongsToMany(() => Statistic, () => StudyStatistic)
+  statistics: Array<Statistic & { StudyStatistic: StudyStatistic }>;
 
   /**
    * Helper method for defining associations.
@@ -37,31 +61,5 @@ class Study extends Model<
     // define association here
   }
 }
-Study.init(
-  {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      unique: true,
-      autoIncrement: false,
-      allowNull: false,
-    },
-    title: DataTypes.STRING,
-    major: DataTypes.STRING,
-    year: DataTypes.INTEGER.UNSIGNED,
-    confirm: {
-      type: DataTypes.TINYINT,
-      defaultValue: 0,
-    },
-    content: DataTypes.TEXT,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
-  },
-  {
-    sequelize: connection,
-    freezeTableName: true,
-    underscored: true,
-  }
-);
 
 export default Study;

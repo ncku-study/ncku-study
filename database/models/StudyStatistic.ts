@@ -1,32 +1,40 @@
-import { DataTypes, Model, Sequelize } from 'sequelize';
-import connection from './connection';
+import {
+  Column,
+  ForeignKey,
+  Model,
+  PrimaryKey,
+  Table,
+} from 'sequelize-typescript';
 
-const initStudyStatistic = (
-  sequelize: Sequelize,
-  dataTypes: typeof DataTypes
-) => {
-  class StudyStatistic extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(/* models */) {
-      // define association here
-    }
+import Statistic from './Statistic';
+import Study from './Study';
+
+@Table({
+  tableName: 'Study_Statistic',
+  timestamps: false,
+  underscored: true,
+})
+class StudyStatistic extends Model {
+  @ForeignKey(() => Study)
+  @PrimaryKey
+  @Column
+  studyId: string;
+
+  @ForeignKey(() => Statistic)
+  @PrimaryKey
+  @Column
+  statisticId: string;
+
+  @Column
+  value: string;
+  /**
+   * Helper method for defining associations.
+   * This method is not a part of Sequelize lifecycle.
+   * The `models/index` file will call this method automatically.
+   */
+  static associate(/* models */) {
+    // define association here
   }
-  StudyStatistic.init(
-    {
-      value: dataTypes.STRING,
-    },
-    {
-      sequelize,
-      tableName: 'Study_Statistic',
-      timestamps: false,
-      underscored: true,
-    }
-  );
-  return StudyStatistic;
-};
+}
 
-export default initStudyStatistic(connection, DataTypes);
+export default StudyStatistic;
