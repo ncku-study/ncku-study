@@ -7,6 +7,7 @@ import Statistic from './Statistic';
 import Study from './Study';
 import StudyCategory from './StudyCategory';
 import StudyStatistic from './StudyStatistic';
+import User from './User';
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -23,6 +24,7 @@ const connection = new Sequelize({
 });
 
 connection.addModels([
+  User,
   Study,
   Category,
   Statistic,

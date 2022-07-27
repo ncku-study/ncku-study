@@ -27,6 +27,7 @@ class StudyStatistic extends Model {
 
   @Column
   value: string;
+
   /**
    * Helper method for defining associations.
    * This method is not a part of Sequelize lifecycle.

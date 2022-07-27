@@ -6,6 +6,21 @@ import Statistic from './Statistic';
 import Study from './Study';
 import StudyCategory from './StudyCategory';
 import StudyStatistic from './StudyStatistic';
+import User from './User';
+
+User.init(
+  {
+    account: {
+      type: DataType.STRING,
+      primaryKey: true,
+    },
+    password: DataType.STRING,
+  },
+  {
+    sequelize: connection,
+    freezeTableName: true,
+  }
+);
 
 Study.init(
   {
@@ -116,4 +131,4 @@ Statistic.belongsToMany(Study, {
   through: StudyStatistic,
 });
 
-export { Study, Category, Statistic, StudyCategory, StudyStatistic };
+export { User, Study, Category, Statistic, StudyCategory, StudyStatistic };
