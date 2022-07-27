@@ -19,6 +19,7 @@ User.init(
   {
     sequelize: connection,
     freezeTableName: true,
+    timestamps: false,
   }
 );
 
