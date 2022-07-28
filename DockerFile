@@ -1,0 +1,8 @@
+FROM node
+
+RUN cd home && git clone https://github.com/ncku-study/ncku-study.git 
+WORKDIR "/home/ncku-study" 
+RUN git remote rename origin upstream 
+RUN npm install
+
+CMD npm run dev
