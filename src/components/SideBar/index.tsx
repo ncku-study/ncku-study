@@ -1,7 +1,6 @@
-import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import useMedia from '@utils/useMedia';
@@ -10,6 +9,11 @@ import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';
 import useSideBarEffect from './useSideBarEffect';
 // import { useMedia } from '~/utils/index';
+
+const Drawer = dynamic(() => import('@mui/material/Drawer'), { ssr: false });
+const ListItemIcon = dynamic(() => import('@mui/material/ListItemIcon'), {
+  ssr: false,
+});
 
 const drawerWidth = 110;
 
@@ -58,6 +62,7 @@ export default function SideBar({ open, onClose, onOpen }: SideBarProps) {
             <ListItem
               button
               key={item.text}
+              className={classes.listItem}
               component="a"
               onClick={() =>
                 handleClick(Array.isArray(item.url) ? item.url[0] : item.url)
