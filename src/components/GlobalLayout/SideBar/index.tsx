@@ -2,13 +2,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 
-import useMedia from '@utils/useMedia';
-import { adminRouters } from './routes';
+import { useMedia } from '@utils/index';
+import { adminRouters, routers } from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';
-import useSideBarEffect from './useSideBarEffect';
-// import { useMedia } from '~/utils/index';
 
 const Drawer = dynamic(() => import('@mui/material/Drawer'), { ssr: false });
 const ListItemIcon = dynamic(() => import('@mui/material/ListItemIcon'), {
@@ -17,52 +16,51 @@ const ListItemIcon = dynamic(() => import('@mui/material/ListItemIcon'), {
 
 const drawerWidth = 110;
 
-function checkIsActiveUrl(target: string, condition: string[] | string) {
+function checkURLActivity(target: string, condition: string[] | string) {
   if (Array.isArray(condition)) {
     return condition.includes(target);
   }
-  // return target === condition;
-  return false;
+  return target === condition;
 }
 
 interface SideBarProps {
   open: boolean;
-  onOpen: () => void;
   onClose: () => void;
 }
 
-export default function SideBar({ open, onClose, onOpen }: SideBarProps) {
-  const classes = useStyle();
+export default function SideBar({ open, onClose: handleClose }: SideBarProps) {
+  const styles = useStyle();
   const router = useRouter();
   const device = useMedia();
 
-  const { handleClick } = useSideBarClick({ device: 'PC', onClose });
-  useSideBarEffect({ device, onClose, onOpen });
+  const { handleClick, handleToggle } = useSideBarClick({
+    handleClose,
+  });
 
-  //   const arr = useMemo(
-  //     () => (location.pathname.startsWith('/admin/') ? adminRouters : routers),
-  //     [location]
-  //   );
+  const list = useMemo(
+    () => (router.pathname.startsWith('/admin/') ? adminRouters : routers),
+    [router.pathname]
+  );
 
   return (
     <Drawer
       anchor="left"
-      className={classes.drawer}
-      variant="persistent"
+      className={styles.drawer}
+      variant={device === 'PC' ? 'persistent' : 'temporary'}
       open={open}
-      //   onClose={handleToggle({ 'left', false})}
+      onClose={handleToggle}
       style={{ width: drawerWidth }}
       classes={{
-        paper: classes.drawerPaper,
+        paper: styles.drawerPaper,
       }}
     >
       <DrawerContent>
         <List component="nav">
-          {adminRouters.map((item) => (
+          {list.map((item) => (
             <ListItem
               button
               key={item.text}
-              className={classes.listItem}
+              className={styles.listItem}
               component="a"
               onClick={() =>
                 handleClick(Array.isArray(item.url) ? item.url[0] : item.url)
@@ -70,9 +68,9 @@ export default function SideBar({ open, onClose, onOpen }: SideBarProps) {
             >
               <ListItemIcon
                 className={
-                  checkIsActiveUrl(router.pathname, item.url)
-                    ? classes.listItemIconSelected
-                    : classes.listItemIcon
+                  checkURLActivity(router.pathname, item.url)
+                    ? styles.listItemIconSelected
+                    : styles.listItemIcon
                 }
               >
                 {item.icon}

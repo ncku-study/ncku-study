@@ -55,8 +55,3 @@ export const Container = styled.div<ContainterProps>`
     border: 0px solid;
   }
 `;
-
-export const MenuIconStyle = {
-  color: color.darkBlack,
-  fontSize: 30,
-};

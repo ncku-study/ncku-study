@@ -1,5 +1,8 @@
 import { useRouter } from 'next/router';
-import { H1, Header } from './style';
+import { useContext } from 'react';
+
+import { NavSearchContext } from '@components/GlobalLayout/NavSearchProvider';
+import { H1, H2, Header, Search } from './style';
 import titleWording from './title.json';
 
 const mapPathnameToTitle = (pathname: string) => {
@@ -25,14 +28,14 @@ interface TitleProps {
 
 function Title({ isShowSearch }: TitleProps) {
   const router = useRouter();
-  //   const { id } = useParams();
-  //   const handleSearch = useContext(NavSearchContext);
+  const { id } = router.query;
+  const handleSearch = useContext(NavSearchContext);
 
-  const TitleElement = H1;
+  const TitleElement = id ? H2 : H1;
   return (
     <Header>
       <TitleElement>{mapPathnameToTitle(router.pathname)}</TitleElement>
-      {/* <Search isShow={isShowSearch} onSubmit={handleSearch} /> */}
+      <Search isShow={isShowSearch} onSubmit={handleSearch} />
     </Header>
   );
 }

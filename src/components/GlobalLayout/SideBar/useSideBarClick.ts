@@ -1,44 +1,45 @@
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 
+import { useMedia } from '@utils/index';
+
 interface UseSideBarClickInterface {
-  device: string;
-  onClose: () => void;
+  handleClose: () => void;
 }
 
 export default function useSideBarClick({
-  device,
-  onClose,
+  handleClose,
 }: UseSideBarClickInterface) {
   const router = useRouter();
+  const device = useMedia();
 
   const handleClick = useCallback(
     (url: string) => {
-      // // 問卷
-      // if (url[0] !== '/') {
-      //   window.open(url, '_blank').focus();
-      //   return;
-      // }
+      // 問卷
+      if (url[0] !== '/') {
+        window.open(url, '_blank')?.focus();
+        return;
+      }
 
       router.push(url);
-      if (device !== 'PC') onClose();
+      if (device !== 'PC') handleClose();
     },
-    [router, device, onClose]
+    [router, device, handleClose]
   );
 
-  // const handleToggle = useCallback(
-  //   () => (event: KeyboardEvent) => {
-  //     if (
-  //       event.type === 'keydown' &&
-  //       (event.key === 'Tab' || event.key === 'Shift')
-  //     ) {
-  //       return;
-  //     }
+  const handleToggle = useCallback(
+    (event: KeyboardEvent) => {
+      if (
+        event.type === 'keydown' &&
+        (event.key === 'Tab' || event.key === 'Shift')
+      ) {
+        return;
+      }
 
-  //     onClose();
-  //   },
-  //   [onClose]
-  // );
+      handleClose();
+    },
+    [handleClose]
+  );
 
-  return { handleClick /* , handleToggle  */ };
+  return { handleClick, handleToggle };
 }

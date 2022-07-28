@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-// import SearchBar from '~/src/components/SearchBar';
+
+import SearchBar from '@components/SearchBar';
 
 export const H1 = styled.h1`
   margin: 0;
@@ -27,27 +28,27 @@ export const H2 = styled.h2`
   }
 `;
 
-// interface SearchProps {
-//   isShow: boolean;
-// }
+interface SearchProps {
+  isShow: boolean;
+}
 
-// export const Search = styled(SearchBar)<SearchProps>`
-//   width: 550px;
-//   height: 45px;
-//   display: ${(props) => (props.isShow ? 'flex' : 'none')};
-//   @media (max-width: 992px) {
-//     flex-grow: 1;
-//     width: 50%;
-//     height: 35px;
-//     padding-left: 25px;
-//   }
+export const Search = styled(SearchBar)<SearchProps>`
+  width: 550px;
+  height: 45px;
+  display: ${(props) => (props.isShow ? 'flex' : 'none')};
+  @media (max-width: 992px) {
+    flex-grow: 1;
+    width: 50%;
+    height: 35px;
+    padding-left: 25px;
+  }
 
-//   @media (max-width: 576px) {
-//     width: 30%;
-//     height: 35px;
-//     padding-left: 25px;
-//   }
-// `;
+  @media (max-width: 576px) {
+    width: 30%;
+    height: 35px;
+    padding-left: 25px;
+  }
+`;
 
 export const Header = styled.header`
   width: 100%;

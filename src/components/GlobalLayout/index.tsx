@@ -5,29 +5,34 @@ import { useState } from 'react';
 
 import { globalTheme } from '@styles/global';
 import Banner from './Banner';
+import { NavSearchProvider } from './NavSearchProvider';
 import SideBar from './SideBar';
 import { Container } from './style';
+import useSideBarEffect from './useSideBarEffect';
 
 const switchOfSearchBar = ['/study'];
 
 export default function GlobalLayout({ children }: PropsWithChildren) {
   const router = useRouter();
-  const [open, setOpen] = useState(true);
+  const [isSideBarOpen, setSideBarOpen] = useState(false);
 
-  const isShowSearch = switchOfSearchBar.includes(router.pathname) || true;
+  useSideBarEffect({ setSideBarOpen });
+
+  const isShowSearch = switchOfSearchBar.includes(router.pathname);
 
   return (
     <ThemeProvider theme={globalTheme}>
       <div style={{ display: 'flex' }}>
-        <SideBar
-          open={open}
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-        />
-        <Container isShowSearch={isShowSearch}>
-          <Banner isShowSearch={isShowSearch} open={open} setOpen={setOpen} />
-          {children}
-        </Container>
+        <SideBar open={isSideBarOpen} onClose={() => setSideBarOpen(false)} />
+        <NavSearchProvider>
+          <Container isShowSearch={isShowSearch}>
+            <Banner
+              isShowSearch={isShowSearch}
+              setSideBarOpen={setSideBarOpen}
+            />
+            {children}
+          </Container>
+        </NavSearchProvider>
       </div>
     </ThemeProvider>
   );
