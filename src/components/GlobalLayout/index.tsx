@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
 
-import SideBar from '@components/SideBar';
 import { globalTheme } from '@styles/global';
 import Banner from './Banner';
+import SideBar from './SideBar';
 import { Container } from './style';
 
 const switchOfSearchBar = ['/study'];

@@ -1,8 +1,8 @@
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { MenuIconStyle } from '../style';
-import Title from '../Title';
 import { Nav } from './style';
+import Title from './Title';
 
 interface BannerProps {
   open: boolean;
