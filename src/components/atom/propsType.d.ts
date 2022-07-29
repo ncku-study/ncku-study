@@ -12,10 +12,10 @@ export type StyleProps = {
 };
 
 export type EventProps = {
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  onClose?: MouseEventHandler<HTMLButtonElement>;
-  onChange?: KeyboardEventHandler<HTMLInputElement>;
-  onDelete?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement> | unknown;
+  onClose?: MouseEventHandler<HTMLButtonElement> | unknown;
+  onChange?: KeyboardEventHandler<HTMLInputElement> | unknown;
+  onDelete?: MouseEventHandler<HTMLButtonElement> | unknown;
 
   enableDelete?: boolean;
 };
@@ -23,18 +23,20 @@ export type EventProps = {
 export type TextProps = {
   value?: string;
   wording?: string;
+  subWording?: string[] | string;
   prefix?: string;
 };
 
 export type OtherProps = {
   elementAttrs?: object;
+  objValue?: unknown;
 };
 
-type PropsType = {
-  styleProps: StyleProps;
-  eventProps: EventProps;
-  textProps: TextProps;
-  otherProps: OtherProps;
-};
+interface PropsType {
+  styleProps?: StyleProps;
+  eventProps?: EventProps;
+  textProps?: TextProps;
+  otherProps?: OtherProps;
+}
 
 export default PropsType;
