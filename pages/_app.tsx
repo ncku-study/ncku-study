@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import type { AppProps } from 'next/app';
+import { FC } from 'react';
 
-import GlobalLayout from '@components/GlobalLayout';
-import '@styles/global.scss';
+import GlobalLayout from '@/components/GlobalLayout';
+import '@/styles/global.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <GlobalLayout>
-      <Component {...pageProps} />
-    </GlobalLayout>
-  );
-}
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+    return (
+        <GlobalLayout>
+            <Component {...pageProps} />
+        </GlobalLayout>
+    );
+};
 
 export default MyApp;

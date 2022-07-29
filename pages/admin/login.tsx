@@ -1,5 +1,8 @@
+import { FC } from 'react';
 import LoginPage from '~/client/pages/Login';
 
-export default function Login() {
-  return <LoginPage />;
-}
+const Login: FC<unknown> = () => {
+    return <LoginPage />;
+};
+
+export default Login;

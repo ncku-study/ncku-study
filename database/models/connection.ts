@@ -12,24 +12,24 @@ import User from './User';
 const env = process.env.NODE_ENV || 'development';
 
 const connection = new Sequelize({
-  database: config[env].database,
-  dialect: config[env].dialect as Dialect,
-  username: config[env].username,
-  password: config[env].password,
-  host: config[env].host,
-  define: {
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_unicode_ci',
-  },
+    database: config[env].database,
+    dialect: config[env].dialect as Dialect,
+    username: config[env].username,
+    password: config[env].password,
+    host: config[env].host,
+    define: {
+        charset: 'utf8mb4',
+        collate: 'utf8mb4_unicode_ci',
+    },
 });
 
 connection.addModels([
-  User,
-  Study,
-  Category,
-  Statistic,
-  StudyCategory,
-  StudyStatistic,
+    User,
+    Study,
+    Category,
+    Statistic,
+    StudyCategory,
+    StudyStatistic,
 ]);
 
 // CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

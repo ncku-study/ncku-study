@@ -1,50 +1,50 @@
 @import 'variables';
 
 html {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 body {
-  margin: 0;
-  font-family: 'Noto Sans TC', 'Microsoft JhengHei';
-  color: $dark-black;
-  font-size: 15px;
-  line-height: 1.42857143;
-  overflow-y: hidden;
+    margin: 0;
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei';
+    color: $dark-black;
+    font-size: 15px;
+    line-height: 1.42857143;
+    overflow-y: hidden;
 }
 
 #root {
-  background-color: $white;
+    background-color: $white;
 }
 
 .Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
 }
 
 textarea::-webkit-scrollbar,
 section::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
-  background-color: transparent;
-  border: none;
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    border: none;
 }
 
 textarea::-webkit-scrollbar-thumb,
 section::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: $yellow;
-  opacity: 0.5;
+    border-radius: 10px;
+    background-color: $yellow;
+    opacity: 0.5;
 }
 
 textarea::-webkit-scrollbar-track,
 section::-webkit-scrollbar-track {
-  background-color: transparent;
-  border: 0px solid;
+    background-color: transparent;
+    border: 0px solid;
 }
 
 .h1,
@@ -59,9 +59,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.5rem;
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.2;
-  color: inherit;
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
 }

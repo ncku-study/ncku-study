@@ -1,5 +1,6 @@
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
+import { FC } from 'react';
 
 // import BoxIcon from '~/client/img/box.svg';
 import {
@@ -16,7 +17,7 @@ import {
 } from './style';
 import useLogin from './useLogin';
 
-function Login(/* { setToken } */) {
+const Login: FC<unknown> = () => {
     const { loading, accountRef, passwordRef, handleSubmit } = useLogin();
 
     // useEffect(() => {
@@ -59,6 +60,6 @@ function Login(/* { setToken } */) {
             </FormLayout>
         </LoginLayout>
     );
-}
+};
 
 export default Login;
