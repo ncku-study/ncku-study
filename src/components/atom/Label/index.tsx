@@ -1,19 +1,19 @@
 import { NextPage } from 'next';
-import ClickEventListener from '../ClickEventListener';
-import PropsType from '../propsType';
+import ClickListener from '../ClickListener';
+import PropsType, { EventProps, TextProps } from '../propsType';
 import { DeleteButton, Title } from './style';
 
 const Label: NextPage<PropsType> = ({ styleProps, textProps, eventProps }) => {
-  const { value } = textProps;
-  const { enableDelete, onDelete } = eventProps;
+  const { value } = textProps as TextProps;
+  const { enableDelete, onDelete } = eventProps as EventProps;
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <Title {...styleProps}>
       {value}{' '}
       {enableDelete && (
-        <ClickEventListener onClick={onDelete}>
+        <ClickListener onClick={onDelete}>
           <DeleteButton />
-        </ClickEventListener>
+        </ClickListener>
       )}
     </Title>
   );
