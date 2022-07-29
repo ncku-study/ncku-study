@@ -5,12 +5,15 @@
       "import/resolver": {
         "typescript": {},
         "alias": {
-          "map": [
-            ["~", "."],
-            ["Client", "./src"],
-            ["Server", "./database"]
-          ],
-          "extensions": ["", ".js", ".jsx", ".ts", ".tsx"]
+            "map": [
+                ["~/*", ["./*"]],
+                ["@/db/*", ["./*"]],
+                ["@/db/*", ["database/*"]],
+                ["@/components/*", ["client/components/*"]],
+                ["@/utils/*", ["client/utils/*"]],
+                ["@/styles/*", ["styles/*"]]
+            ],
+            "extensions": ["", ".js", ".jsx", ".ts", ".tsx"]
         }
       }
     },

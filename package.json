@@ -6,7 +6,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "lint:fix": "eslint --ext .tsx --ext .ts --ext .jsx --ext .js ./src --fix",
+        "lint:fix": "eslint --ext .tsx --ext .ts --ext .jsx --ext .js ./client --fix",
         "format": "prettier --config ./.prettierrc.json --write .",
         "db:migrate": "sequelize-cli db:migrate",
         "db:rollback": "sequelize-cli db:migrate:undo",

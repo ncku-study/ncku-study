@@ -3,10 +3,10 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["./*"],
-            "@db/*": ["database/*"],
-            "@components/*": ["src/components/*"],
-            "@utils/*": ["src/utils/*"],
-            "@styles/*": ["styles/*"]
+            "@/db/*": ["database/*"],
+            "@/components/*": ["client/components/*"],
+            "@/utils/*": ["client/utils/*"],
+            "@/styles/*": ["styles/*"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],
