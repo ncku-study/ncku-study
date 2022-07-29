@@ -1,6 +1,12 @@
 import TextField from '@mui/material/TextField';
 import { NextPage } from 'next';
-import PropsType from '../propsType';
+import ChangeListener from '../ChangeListener';
+import PropsType, {
+  EventProps,
+  OtherProps,
+  StyleProps,
+  TextProps,
+} from '../propsType';
 
 import { InputFieldWithPrefix } from './style';
 
@@ -10,18 +16,24 @@ const InputWithPrefix: NextPage<PropsType> = ({
   eventProps,
   otherProps,
 }) => {
-  const { className } = styleProps;
-  const { elementAttrs } = otherProps;
-  const { onChange } = eventProps;
-  const { prefix, value } = textProps;
+  const { className } = styleProps as StyleProps;
+  const { elementAttrs } = otherProps as OtherProps;
+  const { onChange } = eventProps as EventProps;
+  const { prefix, value } = textProps as TextProps;
+
+  const attribute = {
+    value,
+    className,
+    inputProps: elementAttrs,
+    InputLabelProps: { shrink: false },
+  };
+
   return (
     <InputFieldWithPrefix>
       {prefix}
-      <TextField
-        value={value}
-        className={className}
-        inputProps={elementAttrs}
-        InputLabelProps={{ shrink: false }}
+      <ChangeListener
+        Children={TextField}
+        attribute={attribute}
         onChange={onChange}
       />
     </InputFieldWithPrefix>

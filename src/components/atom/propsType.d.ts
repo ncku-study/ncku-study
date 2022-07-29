@@ -11,6 +11,9 @@ export type StyleProps = {
   color?: string;
 };
 
+export type MouseEventHandle = MouseEventHandler<HTMLButtonElement>;
+export type KeyboardEventHandle = KeyboardEventHandler<HTMLInputElement>;
+
 export type EventProps = {
   onClick?: MouseEventHandler<HTMLButtonElement> | unknown;
   onClose?: MouseEventHandler<HTMLButtonElement> | unknown;
@@ -23,7 +26,7 @@ export type EventProps = {
 export type TextProps = {
   value?: string;
   wording?: string;
-  subWording?: string[] | string;
+  subWording?: string[];
   prefix?: string;
 };
 
