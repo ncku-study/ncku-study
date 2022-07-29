@@ -6,7 +6,9 @@
         "typescript": {},
         "alias": {
           "map": [
-            ["~", "."]
+            ["~", "."],
+            ["Client", "./src"],
+            ["Server", "./database"]
           ],
           "extensions": ["", ".js", ".jsx", ".ts", ".tsx"]
         }
