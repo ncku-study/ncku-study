@@ -1,12 +1,6 @@
 import styled from '@emotion/styled';
+import { ThemeType } from '~/src/theme/theme';
 import { StyleProps } from '../propsType';
-
-type StyleType = {
-  color: string;
-  backgroundColor: string;
-};
-
-type ThemeType = Record<string, StyleType>;
 
 const theme: ThemeType = {
   primary: {

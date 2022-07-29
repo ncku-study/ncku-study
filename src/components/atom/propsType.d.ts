@@ -9,6 +9,7 @@ export type StyleProps = {
   align?: string;
   theme?: string;
   color?: string;
+  isSelected?: boolean;
 };
 
 export type MouseEventHandle = MouseEventHandler<HTMLButtonElement>;
