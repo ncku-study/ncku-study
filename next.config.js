@@ -12,6 +12,8 @@ const nextConfig = {
         config.module.resolve.push({
             alias: {
                 '~': path.resolve(__dirname, '.'),
+                Client: path.resolve(__dirname, 'src'),
+                Server: path.resolve(__dirname, 'database'),
             },
         });
         return config;
