@@ -5,24 +5,26 @@ import { useEffect, useState } from 'react';
  * @returns width of window
  */
 const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+    const [windowWidth, setWindowWidth] = useState<number | undefined>(
+        undefined
+    );
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return undefined;
+    useEffect(() => {
+        if (typeof window === 'undefined') return undefined;
 
-    function handleWindowResized() {
-      setWindowWidth(window.innerWidth);
-    }
+        function handleWindowResized() {
+            setWindowWidth(window.innerWidth);
+        }
 
-    window.addEventListener('resize', handleWindowResized);
-    handleWindowResized();
+        window.addEventListener('resize', handleWindowResized);
+        handleWindowResized();
 
-    return () => {
-      window.removeEventListener('resize', handleWindowResized);
-    };
-  }, []);
+        return () => {
+            window.removeEventListener('resize', handleWindowResized);
+        };
+    }, []);
 
-  return windowWidth;
+    return windowWidth;
 };
 
 export default useWindowWidth;

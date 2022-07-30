@@ -4,19 +4,19 @@ import { createContext, PropsWithChildren, useState } from 'react';
 
 export const NavSearchContext = createContext('');
 
-export function NavSearchProvider({ children }: PropsWithChildren) {
-  const [query, setQuery] = useState('');
+export const NavSearchProvider = ({ children }: PropsWithChildren) => {
+    const [query] = useState('');
 
-  // return (
-  //   <NavSearchContext.Provider value={handleSearch}>
-  //     <SetNavSearchContext.Provider value={setHandleSearch}>
-  //       {children}
-  //     </SetNavSearchContext.Provider>
-  //   </NavSearchContext.Provider>
-  // );
-  return (
-    <NavSearchContext.Provider value={query}>
-      {children}
-    </NavSearchContext.Provider>
-  );
-}
+    // return (
+    //   <NavSearchContext.Provider value={handleSearch}>
+    //     <SetNavSearchContext.Provider value={setHandleSearch}>
+    //       {children}
+    //     </SetNavSearchContext.Provider>
+    //   </NavSearchContext.Provider>
+    // );
+    return (
+        <NavSearchContext.Provider value={query}>
+            {children}
+        </NavSearchContext.Provider>
+    );
+};
