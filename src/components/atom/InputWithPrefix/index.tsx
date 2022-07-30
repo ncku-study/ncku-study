@@ -1,12 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import TextField from '@mui/material/TextField';
-import { FC } from 'react';
-import ChangeListener from '../ChangeListener';
-import PropsType, {
-    EventProps,
-    OtherProps,
-    StyleProps,
-    TextProps,
-} from '../propsType';
+import { ChangeEventHandler, FC } from 'react';
+import PropsType from '../propsType';
 
 import { InputFieldWithPrefix } from './style';
 
@@ -16,10 +11,12 @@ const InputWithPrefix: FC<PropsType> = ({
     eventProps,
     otherProps,
 }) => {
-    const { className } = styleProps as StyleProps;
-    const { elementAttrs } = otherProps as OtherProps;
-    const { onChange } = eventProps as EventProps;
-    const { prefix, value } = textProps as TextProps;
+    const className = styleProps?.className;
+    const elementAttrs = otherProps?.elementAttrs;
+    const onChange =
+        eventProps?.onChange as ChangeEventHandler<HTMLInputElement>;
+    const prefix = textProps?.prefix;
+    const value = textProps?.value;
 
     const attribute = {
         value,
@@ -31,11 +28,7 @@ const InputWithPrefix: FC<PropsType> = ({
     return (
         <InputFieldWithPrefix>
             {prefix}
-            <ChangeListener
-                Children={TextField}
-                attribute={attribute}
-                onChange={onChange}
-            />
+            <TextField onChange={onChange} {...attribute} />
         </InputFieldWithPrefix>
     );
 };

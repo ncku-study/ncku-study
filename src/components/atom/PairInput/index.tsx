@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useCallback } from 'react';
 import Input from '../Input';
 import Label from '../Label';
-import PropsType, { EventProps, OtherProps, TextProps } from '../propsType';
+import PropsType from '../propsType';
 import { InputLayout, PairInputLayout } from './style';
 
 const labelStyle = {
@@ -24,10 +24,11 @@ type ValueType = {
 type OnChangeType = (e: object) => void;
 
 const PairInput: FC<PropsType> = ({ textProps, eventProps, otherProps }) => {
-    const { wording, subWording } = textProps as TextProps;
-    const { enableDelete } = eventProps as EventProps;
+    const wording = textProps?.wording;
+    const subWording = textProps?.subWording;
+    const enableDelete = eventProps?.enableDelete;
     const onChange = eventProps?.onChange as OnChangeType;
-    const { objValue } = otherProps as OtherProps;
+    const objValue = otherProps?.objValue;
     const { name, value } = objValue as ValueType;
 
     const nameWording = subWording ? subWording[0] : '';

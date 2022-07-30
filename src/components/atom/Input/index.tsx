@@ -1,14 +1,15 @@
-import { FC } from 'react';
-import ChangeListener from '../ChangeListener';
-import PropsType, { EventProps, OtherProps, TextProps } from '../propsType';
+import { ChangeEventHandler, FC } from 'react';
+import PropsType from '../propsType';
 import TextField, { useStyles } from './style';
 
 const Input: FC<PropsType> = ({ textProps, eventProps, otherProps }) => {
     const classes = useStyles();
 
-    const { value, wording } = textProps as TextProps;
-    const { onChange } = eventProps as EventProps;
-    const { elementAttrs } = otherProps as OtherProps;
+    const value = textProps?.value;
+    const wording = textProps?.wording;
+    const onChange =
+        eventProps?.onChange as ChangeEventHandler<HTMLInputElement>;
+    const elementAttrs = otherProps?.elementAttrs;
 
     const attribute = {
         value,
@@ -16,13 +17,8 @@ const Input: FC<PropsType> = ({ textProps, eventProps, otherProps }) => {
         label: wording,
         InputLabelProps: { className: classes.labelText, shrink: true },
     };
-    return (
-        <ChangeListener
-            Children={TextField}
-            attribute={attribute}
-            onChange={onChange}
-        />
-    );
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <TextField {...attribute} onChange={onChange} />;
 };
 
 export default Input;

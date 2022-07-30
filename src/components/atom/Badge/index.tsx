@@ -1,20 +1,20 @@
 import { FC } from 'react';
-import ClickEventListener from '../ClickListener';
-import PropsType, { EventProps, StyleProps, TextProps } from '../propsType';
+import ClickListener from '../ClickListener';
+import PropsType from '../propsType';
 import { BadgeStyle, CloseIcon } from './style';
 
 const Badge: FC<PropsType> = ({ styleProps, textProps, eventProps }) => {
-    const { className } = styleProps as StyleProps;
-    const { value } = textProps as TextProps;
-    const { onClose } = eventProps as EventProps;
+    const className = styleProps?.className;
+    const value = textProps?.value;
+    const onClose = eventProps?.onClose;
     return (
         <BadgeStyle className={className}>
             <>
                 {value}
                 {onClose && (
-                    <ClickEventListener>
+                    <ClickListener>
                         <CloseIcon />
-                    </ClickEventListener>
+                    </ClickListener>
                 )}
             </>
         </BadgeStyle>
