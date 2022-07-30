@@ -1,8 +1,14 @@
 {
-  "src/**/*.{js,jsx,ts,tsx}": [
-    "eslint --ext .tsx --ext .ts --ext .jsx --ext .js ./src --fix"
+  "src/**/*.{,ts,tsx}": [
+    "eslint --ext .tsx --ext .ts ./src"
   ],
   "./src/**": [
-    "prettier --write ."
+    "prettier --write ./src/."
+  ],
+  "pages/**/*.{ts,tsx}": [
+    "eslint --ext .tsx --ext .ts ./pages"
+  ],
+  "./pages/**": [
+    "prettier --write ./pages/."
   ]
 }
