@@ -27,7 +27,10 @@
             "off",
             { "extensions": [",ts", ".tsx"] }
         ],
-        "react/function-component-definition": "off",
+        "react/function-component-definition": [
+            2,
+            { "namedComponents": "arrow-function" }
+        ],
         "import/no-anonymous-default-export": [
             "error",
             { "allowArrowFunction": true }
@@ -53,6 +56,7 @@
                 "semi": true,
                 "singleQuote": true
             }
-        ]
+        ],
+        "import/prefer-default-export": "off"
     }
 }
