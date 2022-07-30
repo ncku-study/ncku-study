@@ -1,20 +1,19 @@
+import { createHash } from 'crypto';
 import { useRouter } from 'next/router';
 import { FormEvent, useCallback, useRef, useState } from 'react';
 
-import { createHash } from 'crypto';
-import fetchLoginInfo from '~/src/models/middlewares/login';
+import useUser from '~/lib/useUser';
+import { Session } from '~/pages/api/user';
 
-// import { fetchLoginInfo } from '~/model/middleware/login.js';
-
-function useLogin() {
-    // const [token, setToken] = useState(undefined);
+export default function useLogin() {
     const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const accountRef = useRef<HTMLInputElement | undefined>(undefined);
     const passwordRef = useRef<HTMLInputElement | undefined>(undefined);
+    const { mutateUser } = useUser();
     const router = useRouter();
 
     const { from } = /* location.state || */ {
-        from: { pathname: '/admin/major' },
+        from: { pathname: '/admin' },
     };
 
     const handleRedirect = useCallback(() => {
@@ -33,15 +32,25 @@ function useLogin() {
                 .update(passwordRef.current.value)
                 .digest('hex');
 
-            fetchLoginInfo({
-                loginInfo: { account, password },
-                callback: { onSuccess: handleRedirect, onFailure: setLoading },
+            mutateUser(async (): Promise<Session> => {
+                const res = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                    }),
+                    body: JSON.stringify({ account, password }),
+                });
+
+                const data: Session = await res.json();
+
+                if (data.isLoggedIn) handleRedirect();
+                else setLoading(false);
+
+                return data;
             });
         },
-        [handleRedirect]
+        [handleRedirect, mutateUser]
     );
 
     return { loading, accountRef, passwordRef, handleSubmit };
 }
-
-export default useLogin;

@@ -2,6 +2,7 @@ import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import SchoolIcon from '@mui/icons-material/School';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -31,7 +32,7 @@ export const routers = [
     },
 ];
 
-export const adminRouters = [
+export const adminRouters = (isLoggedIn: boolean) => [
     {
         text: '審查學業',
         icon: <SchoolIcon style={iconStyle} />,
@@ -52,9 +53,15 @@ export const adminRouters = [
         icon: <ErrorOutlinedIcon style={iconStyle} />,
         url: '/admin/announcement',
     },
-    {
-        text: '回到首頁',
-        icon: <HomeIcon style={iconStyle} />,
-        url: '/',
-    },
+    isLoggedIn
+        ? {
+              text: '登出',
+              icon: <LogoutIcon style={iconStyle} />,
+              url: '/',
+          }
+        : {
+              text: '回到首頁',
+              icon: <HomeIcon style={iconStyle} />,
+              url: '/',
+          },
 ];

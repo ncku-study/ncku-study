@@ -25,24 +25,30 @@ function checkURLActivity(target: string, condition: string[] | string) {
 }
 
 interface SideBarProps {
+    isLoggedIn: boolean;
     open: boolean;
     onClose: () => void;
 }
 
-const SideBar: FC<SideBarProps> = ({ open, onClose }) => {
+const SideBar: FC<SideBarProps> = ({
+    isLoggedIn,
+    open,
+    onClose: handleClose,
+}) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
-
-    const handleClose = onClose;
 
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,
     });
 
     const list = useMemo(
-        () => (router.pathname.startsWith('/admin/') ? adminRouters : routers),
-        [router.pathname]
+        () =>
+            router.pathname.startsWith('/admin')
+                ? adminRouters(isLoggedIn)
+                : routers,
+        [isLoggedIn, router.pathname]
     );
 
     return (

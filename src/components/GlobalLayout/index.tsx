@@ -12,7 +12,11 @@ import useSideBarEffect from './useSideBarEffect';
 
 const switchOfSearchBar = ['/study'];
 
-const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
+interface GlobalLayoutProps extends PropsWithChildren {
+    isLoggedIn: boolean;
+}
+
+const GlobalLayout: FC<GlobalLayoutProps> = ({ isLoggedIn, children }) => {
     const router = useRouter();
     const [isSideBarOpen, setSideBarOpen] = useState(false);
 
@@ -22,21 +26,20 @@ const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <ThemeProvider theme={globalTheme}>
-            <div style={{ display: 'flex' }}>
-                <SideBar
-                    open={isSideBarOpen}
-                    onClose={() => setSideBarOpen(false)}
-                />
-                <NavSearchProvider>
-                    <Container isShowSearch={isShowSearch}>
-                        <Banner
-                            isShowSearch={isShowSearch}
-                            setSideBarOpen={setSideBarOpen}
-                        />
-                        {children}
-                    </Container>
-                </NavSearchProvider>
-            </div>
+            <SideBar
+                open={isSideBarOpen}
+                onClose={() => setSideBarOpen(false)}
+                isLoggedIn={isLoggedIn}
+            />
+            <NavSearchProvider>
+                <Container isShowSearch={isShowSearch}>
+                    <Banner
+                        isShowSearch={isShowSearch}
+                        setSideBarOpen={setSideBarOpen}
+                    />
+                    {children}
+                </Container>
+            </NavSearchProvider>
         </ThemeProvider>
     );
 };

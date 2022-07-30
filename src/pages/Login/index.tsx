@@ -17,12 +17,8 @@ import {
 } from './style';
 import useLogin from './useLogin';
 
-const Login: FC<unknown> = (/* { setToken } */) => {
+const Login: FC<unknown> = () => {
     const { loading, accountRef, passwordRef, handleSubmit } = useLogin();
-
-    // useEffect(() => {
-    //   if (token) setToken(token);
-    // }, [token, setToken]);
 
     return (
         <LoginLayout>
