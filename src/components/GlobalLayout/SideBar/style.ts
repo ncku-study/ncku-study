@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import type { Theme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-import { color } from '@styles/global';
+import { color } from '~/styles/global';
 
 export const useStyle = makeStyles((theme: Theme) => ({
     root: {

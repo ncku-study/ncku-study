@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import SearchBar from '@components/SearchBar';
+import SearchBar from '@/components/SearchBar';
 
 export const H1 = styled.h1`
     margin: 0;

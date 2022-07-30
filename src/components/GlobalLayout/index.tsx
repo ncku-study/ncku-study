@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import type { FC, PropsWithChildren } from 'react';
 import { useState } from 'react';
 
-import { globalTheme } from '@styles/global';
+import { globalTheme } from '~/styles/global';
 import Banner from './Banner';
 import { NavSearchProvider } from './NavSearchProvider';
 import SideBar from './SideBar';

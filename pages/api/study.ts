@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
 
-import { Category, Statistic, Study } from '@db/models';
+import { Category, Statistic, Study } from '@/db/models';
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 

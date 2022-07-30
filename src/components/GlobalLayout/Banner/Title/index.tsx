@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import type { FC } from 'react';
 import { useContext } from 'react';
 
-import { NavSearchContext } from '@components/GlobalLayout/NavSearchProvider';
+import { NavSearchContext } from '@/components/GlobalLayout/NavSearchProvider';
 import { H1, H2, Header, Search } from './style';
 import titleWording from './title.json';
 

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 
-import { useMedia } from '@utils/index';
+import { useMedia } from '@/utils/index';
 
 interface UseSideBarClickInterface {
     handleClose: () => void;

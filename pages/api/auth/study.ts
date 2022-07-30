@@ -1,7 +1,7 @@
 import { withIronSessionApiRoute } from 'iron-session/next';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { Category, Statistic, Study } from '@db/models';
+import { Category, Statistic, Study } from '@/db/models';
 import sessionOptions from '~/lib/session';
 
 async function route(req: NextApiRequest, res: NextApiResponse) {

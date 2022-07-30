@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useMedia } from '@utils/index';
+import { useMedia } from '@/utils/index';
 
 interface UseSideBarEffectProps {
     setSideBarOpen: (isOpen: boolean) => void;

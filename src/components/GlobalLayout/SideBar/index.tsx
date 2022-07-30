@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 
-import { useMedia } from '@utils/index';
+import { useMedia } from '@/utils/index';
 import { adminRouters, routers } from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';

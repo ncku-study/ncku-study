@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SearchIcon from '@mui/icons-material/Search';
-import { color } from '@styles/global';
+import { color } from '~/styles/global';
 
 export const Container = styled.form`
     position: relative;

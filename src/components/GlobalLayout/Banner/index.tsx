@@ -1,7 +1,7 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import type { FC } from 'react';
 
-import { useMedia } from '@utils/index';
+import { useMedia } from '@/utils/index';
 import { MenuIconStyle, Nav } from './style';
 import Title from './Title';
 

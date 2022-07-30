@@ -1,4 +1,4 @@
-import { User } from '@db/models';
+import { User } from '@/db/models';
 import { withIronSessionApiRoute } from 'iron-session/next';
 import { NextApiRequest, NextApiResponse } from 'next';
 

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { color } from '@styles/global';
+import { color } from '~/styles/global';
 
 export const Nav = styled.nav`
     display: flex;
