@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { useRouter } from 'next/router';
-import type { FC, PropsWithChildren } from 'react';
-import { useState } from 'react';
+import { FC, PropsWithChildren, useState } from 'react';
 
 import { globalTheme } from '~/styles/global';
 import Banner from './Banner';
@@ -22,21 +21,19 @@ const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <ThemeProvider theme={globalTheme}>
-            <div style={{ display: 'flex' }}>
-                <SideBar
-                    open={isSideBarOpen}
-                    onClose={() => setSideBarOpen(false)}
-                />
-                <NavSearchProvider>
-                    <Container isShowSearch={isShowSearch}>
-                        <Banner
-                            isShowSearch={isShowSearch}
-                            setSideBarOpen={setSideBarOpen}
-                        />
-                        {children}
-                    </Container>
-                </NavSearchProvider>
-            </div>
+            <SideBar
+                open={isSideBarOpen}
+                onClose={() => setSideBarOpen(false)}
+            />
+            <NavSearchProvider>
+                <Container isShowSearch={isShowSearch}>
+                    <Banner
+                        isShowSearch={isShowSearch}
+                        setSideBarOpen={setSideBarOpen}
+                    />
+                    {children}
+                </Container>
+            </NavSearchProvider>
         </ThemeProvider>
     );
 };

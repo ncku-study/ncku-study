@@ -1,19 +1,19 @@
 import type { IronSessionOptions } from 'iron-session';
 
-import type { Session } from '~/pages/api/login';
+import type { Session } from '~/pages/api/user';
 
 const sessionOptions: IronSessionOptions = {
-  password: process.env.SECRET_COOKIE_PASSWORD as string,
-  cookieName: 'my-app/session',
-  cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-  },
+    password: process.env.SECRET_COOKIE_PASSWORD as string,
+    cookieName: 'my-app/session',
+    cookieOptions: {
+        secure: process.env.NODE_ENV === 'production',
+    },
 };
 
 declare module 'iron-session' {
-  interface IronSessionData {
-    user: Session;
-  }
+    interface IronSessionData {
+        user: Session;
+    }
 }
 
 export default sessionOptions;

@@ -5,7 +5,7 @@ import { Category, Statistic, Study } from '@/db/models';
 import sessionOptions from '~/lib/session';
 
 async function route(req: NextApiRequest, res: NextApiResponse) {
-    if (req.session.user === 'sth') {
+    if (req.session.user.username === 'sth') {
         const {
             query: { cate, stat },
         } = req;

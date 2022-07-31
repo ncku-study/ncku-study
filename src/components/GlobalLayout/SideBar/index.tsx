@@ -2,10 +2,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import type { FC } from 'react';
-import { useMemo } from 'react';
+import { FC, useContext, useMemo } from 'react';
 
 import { useMedia } from '@/utils/index';
+import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 import { adminRouters, routers } from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';
@@ -29,20 +29,22 @@ interface SideBarProps {
     onClose: () => void;
 }
 
-const SideBar: FC<SideBarProps> = ({ open, onClose }) => {
+const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
-
-    const handleClose = onClose;
+    const { isLoggedIn } = useContext(GlobalLayoutContext);
 
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,
     });
 
     const list = useMemo(
-        () => (router.pathname.startsWith('/admin/') ? adminRouters : routers),
-        [router.pathname]
+        () =>
+            router.pathname.startsWith('/admin')
+                ? adminRouters(isLoggedIn)
+                : routers,
+        [isLoggedIn, router.pathname]
     );
 
     return (

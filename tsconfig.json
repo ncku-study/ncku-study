@@ -5,8 +5,8 @@
             "~/*": ["./*"],
             "@/db/*": ["database/*"],
             "@/components/*": ["src/components/*"],
-            "@/utils/*": ["src/utils/*"],
-            "~/styles/*": ["styles/*"]
+            "@/pages/*": ["src/pages/*"],
+            "@/utils/*": ["src/utils/*"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],

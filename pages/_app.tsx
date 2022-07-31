@@ -2,14 +2,18 @@
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
 
-import GlobalLayout from '@/components/GlobalLayout';
+import GlobalLayout from '~/src/components/GlobalLayout';
+import { GlobalLayoutContextProvider } from '~/src/contexts/GlobalLayoutContext';
+
 import '~/styles/global.scss';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
     return (
-        <GlobalLayout>
-            <Component {...pageProps} />
-        </GlobalLayout>
+        <GlobalLayoutContextProvider>
+            <GlobalLayout>
+                <Component {...pageProps} />
+            </GlobalLayout>
+        </GlobalLayoutContextProvider>
     );
 };
 
