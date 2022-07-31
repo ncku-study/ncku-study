@@ -1,9 +1,29 @@
+import { withIronSessionSsr } from 'iron-session/next';
 import { NextPage } from 'next';
 
+import type { LoginProps } from '@/pages/Login';
 import LoginPage from '@/pages/Login';
+import sessionOptions from '~/lib/session';
+import type { Session } from '../api/user';
 
-const Login: NextPage = () => {
-    return <LoginPage />;
+export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
+    const { user } = req.session;
+
+    if (!user?.isLoggedIn)
+        return {
+            props: {
+                user: {
+                    username: '',
+                    isLoggedIn: false,
+                } as Session,
+            },
+        };
+
+    return { props: { user } };
+}, sessionOptions);
+
+const Login: NextPage<LoginProps> = ({ user }) => {
+    return <LoginPage user={user} />;
 };
 
 export default Login;

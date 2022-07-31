@@ -1,15 +1,15 @@
 import { createHash } from 'crypto';
 import { useRouter } from 'next/router';
-import { FormEvent, useCallback, useRef, useState } from 'react';
+import { FormEvent, useCallback, useContext, useRef, useState } from 'react';
 
-import useUser from '~/lib/useUser';
 import { Session } from '~/pages/api/user';
+import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 
 export default function useLogin() {
     const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const accountRef = useRef<HTMLInputElement | undefined>(undefined);
     const passwordRef = useRef<HTMLInputElement | undefined>(undefined);
-    const { mutateUser } = useUser();
+    const { setLoginStatus } = useContext(GlobalLayoutContext);
     const router = useRouter();
 
     const { from } = /* location.state || */ {
@@ -21,7 +21,7 @@ export default function useLogin() {
     }, [router, from]);
 
     const handleSubmit = useCallback(
-        (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
+        async (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
             e.preventDefault();
             setLoading(true);
             if (!accountRef.current?.value || !passwordRef.current?.value)
@@ -32,24 +32,24 @@ export default function useLogin() {
                 .update(passwordRef.current.value)
                 .digest('hex');
 
-            mutateUser(async (): Promise<Session> => {
-                const res = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: new Headers({
-                        'Content-Type': 'application/json',
-                    }),
-                    body: JSON.stringify({ account, password }),
-                });
-
-                const data: Session = await res.json();
-
-                if (data.isLoggedIn) handleRedirect();
-                else setLoading(false);
-
-                return data;
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                }),
+                body: JSON.stringify({ account, password }),
             });
+
+            const data: Session = await res.json();
+
+            if (!data.isLoggedIn) {
+                setLoading(false);
+                return;
+            }
+            setLoginStatus?.(data.isLoggedIn);
+            handleRedirect();
         },
-        [handleRedirect, mutateUser]
+        [handleRedirect, setLoginStatus]
     );
 
     return { loading, accountRef, passwordRef, handleSubmit };

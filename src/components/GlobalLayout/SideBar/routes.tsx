@@ -57,7 +57,7 @@ export const adminRouters = (isLoggedIn: boolean) => [
         ? {
               text: '登出',
               icon: <LogoutIcon style={iconStyle} />,
-              url: '/',
+              url: '/admin/login',
           }
         : {
               text: '回到首頁',
