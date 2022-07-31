@@ -2,10 +2,10 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import type { FC } from 'react';
-import { useMemo } from 'react';
+import { FC, useContext, useMemo } from 'react';
 
 import { useMedia } from '@/utils/index';
+import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 import { adminRouters, routers } from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';
@@ -25,19 +25,15 @@ function checkURLActivity(target: string, condition: string[] | string) {
 }
 
 interface SideBarProps {
-    isLoggedIn: boolean;
     open: boolean;
     onClose: () => void;
 }
 
-const SideBar: FC<SideBarProps> = ({
-    isLoggedIn,
-    open,
-    onClose: handleClose,
-}) => {
+const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
+    const { isLoggedIn } = useContext(GlobalLayoutContext);
 
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,

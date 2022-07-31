@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { useRouter } from 'next/router';
-import type { FC, PropsWithChildren } from 'react';
-import { useState } from 'react';
+import { FC, PropsWithChildren, useState } from 'react';
 
 import { globalTheme } from '~/styles/global';
 import Banner from './Banner';
@@ -12,11 +11,7 @@ import useSideBarEffect from './useSideBarEffect';
 
 const switchOfSearchBar = ['/study'];
 
-interface GlobalLayoutProps extends PropsWithChildren {
-    isLoggedIn: boolean;
-}
-
-const GlobalLayout: FC<GlobalLayoutProps> = ({ isLoggedIn, children }) => {
+const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
     const router = useRouter();
     const [isSideBarOpen, setSideBarOpen] = useState(false);
 
@@ -29,7 +24,6 @@ const GlobalLayout: FC<GlobalLayoutProps> = ({ isLoggedIn, children }) => {
             <SideBar
                 open={isSideBarOpen}
                 onClose={() => setSideBarOpen(false)}
-                isLoggedIn={isLoggedIn}
             />
             <NavSearchProvider>
                 <Container isShowSearch={isShowSearch}>

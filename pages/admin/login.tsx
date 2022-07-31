@@ -1,17 +1,9 @@
-import type { FC } from 'react';
+import { NextPage } from 'next';
 
-import GlobalLayout from '@/components/GlobalLayout';
 import LoginPage from '@/pages/Login';
-import useUser from '~/lib/useUser';
 
-const Login: FC<unknown> = () => {
-    const { user } = useUser();
-
-    return (
-        <GlobalLayout isLoggedIn={!!user?.isLoggedIn}>
-            <LoginPage />
-        </GlobalLayout>
-    );
+const Login: NextPage = () => {
+    return <LoginPage />;
 };
 
 export default Login;
