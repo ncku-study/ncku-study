@@ -1,6 +1,16 @@
 {
     "root": true,
     "env": { "es6": true },
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "react", "prettier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "airbnb",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended"
+    ],
     "settings": {
         "import/resolver": {
             "typescript": {},
@@ -10,31 +20,10 @@
             }
         }
     },
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "react", "prettier"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "airbnb",
-        "next/core-web-vitals",
-        "plugin:prettier/recommended"
-    ],
-    "overrides": [
-        // Only uses Testing Library lint rules in test files
-        {
-            "files": [
-                "**/__tests__/**/*.[jt]s?(x)",
-                "**/?(*.)+(spec|test).[jt]s?(x)"
-            ],
-            "extends": ["plugin:testing-library/react"]
-        }
-    ],
+    "ignorePatterns": [".next/**/*"],
     "rules": {
-        "@typescript-eslint/no-unused-vars": ["error"],
-        "react/jsx-filename-extension": [
-            "off",
-            { "extensions": [".ts", ".tsx"] }
-        ],
+        "@typescript-eslint/no-unused-vars": "error",
+        "react/jsx-filename-extension": "off",
         "react/function-component-definition": [
             "error",
             { "namedComponents": "arrow-function" }
@@ -65,5 +54,31 @@
                 "singleQuote": true
             }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/__tests__/**/*.[jt]s?(x)",
+                "**/?(*.)+(spec|test).[jt]s?(x)"
+            ],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:testing-library/react",
+                "airbnb",
+                "plugin:prettier/recommended"
+            ],
+            "env": {
+                "jest": true
+            },
+            "globals": {
+                "React": "readonly"
+            },
+            "rules": {
+                "react/jsx-filename-extension": "off",
+                "react/jsx-props-no-spreading": "off",
+                "import/extensions": "off"
+            }
+        }
+    ]
 }

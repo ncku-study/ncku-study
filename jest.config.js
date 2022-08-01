@@ -16,7 +16,9 @@ const customJestConfig = {
         '^@/components/(.*)$': '<rootDir>/src/components/$1',
         '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
         '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
+        '^@/tests/(.*)$': '<rootDir>/src/__tests__/$1',
     },
+    modulePathIgnorePatterns: ['<rootDir>/src/__tests__/utils/'],
     testEnvironment: 'jest-environment-jsdom',
 };
 

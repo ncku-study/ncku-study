@@ -9,6 +9,7 @@
         "lint:fix": "eslint --ext .tsx --ext .ts --ext .jsx --ext .js ./src --fix",
         "format": "prettier --config ./.prettierrc.json --write .",
         "test": "jest --watch",
+        "test:update": "jest --updateSnapshot",
         "test:ci": "jest --ci",
         "db:migrate": "sequelize-cli db:migrate",
         "db:rollback": "sequelize-cli db:migrate:undo",
