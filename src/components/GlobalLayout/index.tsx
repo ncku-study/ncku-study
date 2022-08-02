@@ -21,19 +21,21 @@ const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <ThemeProvider theme={globalTheme}>
-            <SideBar
-                open={isSideBarOpen}
-                onClose={() => setSideBarOpen(false)}
-            />
-            <NavSearchProvider>
-                <Container isShowSearch={isShowSearch}>
-                    <Banner
-                        isShowSearch={isShowSearch}
-                        setSideBarOpen={setSideBarOpen}
-                    />
-                    {children}
-                </Container>
-            </NavSearchProvider>
+            <div style={{ display: 'flex' }}>
+                <SideBar
+                    open={isSideBarOpen}
+                    onClose={() => setSideBarOpen(false)}
+                />
+                <NavSearchProvider>
+                    <Container isShowSearch={isShowSearch}>
+                        <Banner
+                            isShowSearch={isShowSearch}
+                            setSideBarOpen={setSideBarOpen}
+                        />
+                        {children}
+                    </Container>
+                </NavSearchProvider>
+            </div>
         </ThemeProvider>
     );
 };
