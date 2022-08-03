@@ -1,6 +1,7 @@
+import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import dynamic from 'next/dynamic';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import { useRouter } from 'next/router';
 import { FC, useContext, useMemo } from 'react';
 
@@ -9,11 +10,6 @@ import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 import { adminRouters, routers } from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
 import useSideBarClick from './useSideBarClick';
-
-const Drawer = dynamic(() => import('@mui/material/Drawer'), { ssr: false });
-const ListItemIcon = dynamic(() => import('@mui/material/ListItemIcon'), {
-    ssr: false,
-});
 
 const drawerWidth = 110;
 

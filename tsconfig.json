@@ -6,7 +6,8 @@
             "@/db/*": ["database/*"],
             "@/components/*": ["src/components/*"],
             "@/pages/*": ["src/pages/*"],
-            "@/utils/*": ["src/utils/*"]
+            "@/utils/*": ["src/utils/*"],
+            "@/tests/*": ["src/__tests__/*"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],
@@ -26,6 +27,6 @@
         "emitDecoratorMetadata": true,
         "strictPropertyInitialization": false
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "*/__tests__/**/*.js"],
     "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import type { Theme } from '@mui/material';
+import type { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 import { color } from '~/styles/global';
