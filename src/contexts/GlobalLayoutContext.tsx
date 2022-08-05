@@ -1,24 +1,34 @@
 import { createContext, PropsWithChildren, useMemo, useState } from 'react';
 
+import { Mode, Session } from '~/pages/api/user';
+
 interface GlobalLayoutContextInterface {
     isLoggedIn: boolean;
     setLoginStatus?: (value: boolean) => void;
+    mode: Mode;
+    setMode?: (mode: Mode) => void;
 }
 export const GlobalLayoutContext = createContext<GlobalLayoutContextInterface>({
     isLoggedIn: false,
     setLoginStatus: undefined,
+    mode: 'normal',
+    setMode: undefined,
 });
 
 interface GlobalLayoutContextProviderInterface extends PropsWithChildren {
-    isLoggedIn: boolean;
+    user: Session;
 }
 
 export const GlobalLayoutContextProvider = ({
-    isLoggedIn: _isLoggedIn,
+    user,
     children,
 }: GlobalLayoutContextProviderInterface) => {
-    const [isLoggedIn, setLoginStatus] = useState(_isLoggedIn);
-    const value = useMemo(() => ({ isLoggedIn, setLoginStatus }), [isLoggedIn]);
+    const [isLoggedIn, setLoginStatus] = useState(user.isLoggedIn);
+    const [mode, setMode] = useState(user.mode);
+    const value = useMemo(
+        () => ({ isLoggedIn, setLoginStatus, mode, setMode }),
+        [mode, isLoggedIn]
+    );
 
     return (
         <GlobalLayoutContext.Provider value={value}>

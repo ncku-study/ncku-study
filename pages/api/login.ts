@@ -15,7 +15,11 @@ async function route(req: NextApiRequest, res: NextApiResponse) {
         return;
     }
 
-    const session = { username: account, isLoggedIn: true } as Session;
+    const session = {
+        username: account,
+        isLoggedIn: true,
+        mode: 'admin',
+    } as Session;
     req.session.user = session;
     await req.session.save();
 

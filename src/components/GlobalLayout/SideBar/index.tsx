@@ -7,8 +7,9 @@ import { FC, useContext, useMemo } from 'react';
 
 import { useMedia } from '@/utils/index';
 import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
-import { adminRouters, routers } from './routes';
+import routes from './routes';
 import { DrawerContent, ListItemText, useStyle } from './style';
+import useInitUserModeByRoute from './useInitUserModeByRoute';
 import useSideBarClick from './useSideBarClick';
 
 const drawerWidth = 110;
@@ -29,19 +30,14 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
-    const { isLoggedIn } = useContext(GlobalLayoutContext);
+    const { isLoggedIn, mode, setMode } = useContext(GlobalLayoutContext);
 
+    useInitUserModeByRoute(router, setMode);
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,
     });
 
-    const list = useMemo(
-        () =>
-            router.pathname.startsWith('/admin')
-                ? adminRouters(isLoggedIn)
-                : routers,
-        [isLoggedIn, router.pathname]
-    );
+    const list = useMemo(() => routes(isLoggedIn, mode), [isLoggedIn, mode]);
 
     return (
         <Drawer
@@ -57,32 +53,38 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
         >
             <DrawerContent>
                 <List component="nav">
-                    {list.map((item) => (
-                        <ListItem
-                            button
-                            key={item.text}
-                            className={styles.listItem}
-                            component="a"
-                            onClick={() =>
-                                handleClick(
-                                    Array.isArray(item.url)
-                                        ? item.url[0]
-                                        : item.url
-                                )
-                            }
-                        >
-                            <ListItemIcon
-                                className={
-                                    checkURLActivity(router.pathname, item.url)
-                                        ? styles.listItemIconSelected
-                                        : styles.listItemIcon
-                                }
-                            >
-                                {item.icon}
-                            </ListItemIcon>
-                            <ListItemText>{item.text}</ListItemText>
-                        </ListItem>
-                    ))}
+                    {list.map(
+                        (item) =>
+                            item && (
+                                <ListItem
+                                    button
+                                    key={item.text}
+                                    className={styles.listItem}
+                                    component="a"
+                                    onClick={() =>
+                                        handleClick(
+                                            Array.isArray(item.url)
+                                                ? item.url[0]
+                                                : item.url
+                                        )
+                                    }
+                                >
+                                    <ListItemIcon
+                                        className={
+                                            checkURLActivity(
+                                                router.pathname,
+                                                item.url
+                                            )
+                                                ? styles.listItemIconSelected
+                                                : styles.listItemIcon
+                                        }
+                                    >
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText>{item.text}</ListItemText>
+                                </ListItem>
+                            )
+                    )}
                 </List>
             </DrawerContent>
         </Drawer>

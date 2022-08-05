@@ -14,7 +14,7 @@ export default function useSideBarClick({
 }: UseSideBarClickInterface) {
     const router = useRouter();
     const device = useMedia();
-    const { setLoginStatus } = useContext(GlobalLayoutContext);
+    const { setLoginStatus, setMode } = useContext(GlobalLayoutContext);
 
     const handleClick = useCallback(
         async (url: string) => {
@@ -23,7 +23,10 @@ export default function useSideBarClick({
                 window.open(url, '_blank')?.focus();
                 return;
             }
-            if (url === '/admin/login') {
+
+            if (url === '/' || url === 'major') setMode?.('normal');
+            else if (url === '/admin') setMode?.('admin');
+            else if (url === '/admin/login') {
                 const res: Session = await (await fetch('/api/logout')).json();
                 setLoginStatus?.(res.isLoggedIn);
             }
@@ -31,7 +34,7 @@ export default function useSideBarClick({
             router.push(url);
             if (device !== 'PC') handleClose();
         },
-        [router, device, handleClose]
+        [router, device, handleClose, setMode, setLoginStatus]
     );
 
     const handleToggle = useCallback(

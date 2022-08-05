@@ -15,10 +15,18 @@ jest.mock('next/router', () => ({
     }),
 }));
 
+const userSession = {
+    username: '',
+    isLoggedIn: false,
+    mode: 'normal',
+};
+
 describe('GlobalLayout', () => {
     it('renders default layout and redirect after clicking', () => {
         pathnameMock.mockReturnValue('/');
-        globalLayoutRender(<GlobalLayout />, { isLoggedIn: false });
+        globalLayoutRender(<GlobalLayout />, {
+            user: { ...userSession, isLoggedIn: false },
+        });
 
         fireEvent.click(screen.getByRole('button', { name: '我要分享' }));
         expect(pushedRoute.mock.calls[0][0]).toEqual('/post');
@@ -32,19 +40,40 @@ describe('GlobalLayout', () => {
 
     it('renders admin layout before signed in', () => {
         pathnameMock.mockReturnValue('/admin/login');
-        globalLayoutRender(<GlobalLayout />, { isLoggedIn: false });
+        globalLayoutRender(<GlobalLayout />, {
+            user: { ...userSession, isLoggedIn: false, mode: 'admin' },
+        });
 
         expect(
             screen.getByRole('button', { name: '回到首頁' })
         ).toBeInTheDocument();
     });
 
-    it('renders admin layout after signed in', () => {
-        pathnameMock.mockReturnValue('/admin/login');
-        globalLayoutRender(<GlobalLayout />, { isLoggedIn: true });
+    it('renders admin layout after signed in (user mode)', () => {
+        pathnameMock.mockReturnValue('/admin');
+        globalLayoutRender(<GlobalLayout />, {
+            user: { ...userSession, isLoggedIn: true, mode: 'normal' },
+        });
 
         expect(
             screen.getByRole('button', { name: '登出' })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('button', { name: '進入後台' })
+        ).toBeInTheDocument();
+    });
+
+    it('renders admin layout after signed in (admin mode)', () => {
+        pathnameMock.mockReturnValue('/admin');
+        globalLayoutRender(<GlobalLayout />, {
+            user: { ...userSession, isLoggedIn: true, mode: 'admin' },
+        });
+
+        expect(
+            screen.getByRole('button', { name: '登出' })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('button', { name: '回到首頁' })
         ).toBeInTheDocument();
     });
 });

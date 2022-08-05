@@ -15,6 +15,7 @@ export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
                 user: {
                     username: '',
                     isLoggedIn: false,
+                    mode: 'admin',
                 } as Session,
             },
         };
