@@ -11,7 +11,7 @@ export const Title = styled.div<StyleProps>`
     color: ${(props) =>
         props.color
             ? props.color
-            : 'rgba(0, 0, 0, 0.54)'}; // the color global theme doesn't exist
+            : color.lightBlack}; // the color global theme doesn't exist
 `;
 
 export const DeleteButton = styled(HighlightOffIcon)<StyleProps>`

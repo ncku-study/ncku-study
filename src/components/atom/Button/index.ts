@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
+import { color } from '~/src/theme/global';
 import { ThemeType } from '~/src/theme/theme';
 import { StyleProps } from '../propsType';
 
 const theme: ThemeType = {
     primary: {
-        color: 'white',
-        backgroundColor: 'rgb(229, 68, 109)',
+        color: color.white,
+        backgroundColor: color.pink,
     },
     light: {
-        color: 'black',
-        backgroundColor: 'lightgray',
+        color: color.darkBlack,
+        backgroundColor: color.lightGray,
     },
 };
 const Button = styled.button<StyleProps>`
