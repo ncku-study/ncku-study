@@ -8,6 +8,6 @@ export default function useInitUserModeByRoute(
     setMode?: (mode: Mode) => void
 ) {
     useEffect(() => {
-        if (router.pathname.match(/^\/admin\/login$/)) setMode?.('admin');
+        if (router.pathname.match(/^\/admin\/login$/)) setMode?.(Mode.admin);
     }, [router.pathname, setMode]);
 }

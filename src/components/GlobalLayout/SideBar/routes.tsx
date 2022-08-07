@@ -15,7 +15,7 @@ const iconStyle = { width: '1.9rem', height: '1.9rem' };
 
 const routes = (isLoggedIn: boolean, mode: Mode) => {
     const basicRoutes =
-        mode === 'normal'
+        mode === Mode.normal
             ? [
                   {
                       text: '轉輔雙主',

@@ -1,6 +1,7 @@
 import GlobalLayout from '@/components/GlobalLayout';
 import globalLayoutRender from '@/tests/utils/globalLayoutRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
+import { Mode, userSession } from '@/tests/utils/userSession';
 
 const pathnameMock = jest.fn().mockReturnValue('/');
 
@@ -10,12 +11,6 @@ jest.mock('next/router', () => ({
         pathname: pathnameMock(),
     }),
 }));
-
-const userSession = {
-    username: '',
-    isLoggedIn: false,
-    mode: 'normal',
-};
 
 describe('GlobalLayout', () => {
     it('renders default layout unchanged', () => {
@@ -29,7 +24,7 @@ describe('GlobalLayout', () => {
     it('renders layout unchanged', () => {
         pathnameMock.mockReturnValue('/admin/login');
         const { container } = globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: false, mode: 'admin' },
+            user: { ...userSession, isLoggedIn: false, mode: Mode.admin },
         });
         expect(container).toMatchSnapshot();
     });
@@ -37,7 +32,7 @@ describe('GlobalLayout', () => {
     it('renders layout unchanged (signed in, admin, login page)', () => {
         pathnameMock.mockReturnValue('/admin/login');
         const { container } = globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: 'admin' },
+            user: { ...userSession, isLoggedIn: true, mode: Mode.admin },
         });
         expect(container).toMatchSnapshot();
     });
@@ -45,7 +40,7 @@ describe('GlobalLayout', () => {
     it('renders layout unchanged (signed in, admin, index page)', () => {
         pathnameMock.mockReturnValue('/admin');
         const { container } = globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: 'admin' },
+            user: { ...userSession, isLoggedIn: true, mode: Mode.admin },
         });
         expect(container).toMatchSnapshot();
     });
@@ -53,7 +48,7 @@ describe('GlobalLayout', () => {
     it('renders layout unchanged (signed in, normal)', () => {
         pathnameMock.mockReturnValue('/');
         const { container } = globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: 'normal' },
+            user: { ...userSession, isLoggedIn: true, mode: Mode.normal },
         });
         expect(container).toMatchSnapshot();
     });

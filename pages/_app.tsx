@@ -6,7 +6,7 @@ import App from 'next/app';
 import sessionOptions from '~/lib/session';
 import GlobalLayout from '~/src/components/GlobalLayout';
 import { GlobalLayoutContextProvider } from '~/src/contexts/GlobalLayoutContext';
-import { Session } from './api/user';
+import { Mode, Session } from './api/user';
 
 import '~/styles/global.scss';
 
@@ -17,7 +17,7 @@ interface MyAppProps extends AppProps {
 const MyApp = ({
     Component,
     pageProps,
-    user = { username: '', isLoggedIn: false, mode: 'normal' },
+    user = { username: '', isLoggedIn: false, mode: Mode.normal },
 }: MyAppProps) => (
     <GlobalLayoutContextProvider user={user}>
         <GlobalLayout>

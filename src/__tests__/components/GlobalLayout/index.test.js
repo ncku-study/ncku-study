@@ -3,6 +3,7 @@ import { fireEvent, screen } from '@testing-library/react';
 import GlobalLayout from '@/components/GlobalLayout';
 import globalLayoutRender from '@/tests/utils/globalLayoutRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
+import { Mode, userSession } from '@/tests/utils/userSession';
 
 const pushedRoute = jest.fn();
 const pathnameMock = jest.fn().mockReturnValue('/');
@@ -14,12 +15,6 @@ jest.mock('next/router', () => ({
         push: pushedRoute,
     }),
 }));
-
-const userSession = {
-    username: '',
-    isLoggedIn: false,
-    mode: 'normal',
-};
 
 describe('GlobalLayout', () => {
     it('renders default layout and redirect after clicking', () => {
@@ -41,7 +36,7 @@ describe('GlobalLayout', () => {
     it('renders admin layout before signed in', () => {
         pathnameMock.mockReturnValue('/admin/login');
         globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: false, mode: 'admin' },
+            user: { ...userSession, isLoggedIn: false, mode: Mode.admin },
         });
 
         expect(
@@ -52,7 +47,7 @@ describe('GlobalLayout', () => {
     it('renders admin layout after signed in (user mode)', () => {
         pathnameMock.mockReturnValue('/admin');
         globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: 'normal' },
+            user: { ...userSession, isLoggedIn: true, mode: Mode.normal },
         });
 
         expect(
@@ -66,7 +61,7 @@ describe('GlobalLayout', () => {
     it('renders admin layout after signed in (admin mode)', () => {
         pathnameMock.mockReturnValue('/admin');
         globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: 'admin' },
+            user: { ...userSession, isLoggedIn: true, mode: Mode.admin },
         });
 
         expect(

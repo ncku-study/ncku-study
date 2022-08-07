@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useContext } from 'react';
 
 import { useMedia } from '@/utils/index';
-import { Session } from '~/pages/api/user';
+import { Mode, Session } from '~/pages/api/user';
 import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 
 interface UseSideBarClickInterface {
@@ -24,8 +24,8 @@ export default function useSideBarClick({
                 return;
             }
 
-            if (url === '/' || url === 'major') setMode?.('normal');
-            else if (url === '/admin') setMode?.('admin');
+            if (url === '/' || url === 'major') setMode?.(Mode.normal);
+            else if (url === '/admin') setMode?.(Mode.admin);
             else if (url === '/admin/login') {
                 const res: Session = await (await fetch('/api/logout')).json();
                 setLoginStatus?.(res.isLoggedIn);

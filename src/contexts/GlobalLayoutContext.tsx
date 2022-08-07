@@ -11,7 +11,7 @@ interface GlobalLayoutContextInterface {
 export const GlobalLayoutContext = createContext<GlobalLayoutContextInterface>({
     isLoggedIn: false,
     setLoginStatus: undefined,
-    mode: 'normal',
+    mode: Mode.normal,
     setMode: undefined,
 });
 
