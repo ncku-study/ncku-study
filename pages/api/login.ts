@@ -3,7 +3,7 @@ import { withIronSessionApiRoute } from 'iron-session/next';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import sessionOptions from '~/lib/session';
-import type { Session } from './user';
+import { Mode, Session } from './user';
 
 async function route(req: NextApiRequest, res: NextApiResponse) {
     const { account, password } = await req.body;
@@ -18,7 +18,7 @@ async function route(req: NextApiRequest, res: NextApiResponse) {
     const session = {
         username: account,
         isLoggedIn: true,
-        mode: 'admin',
+        mode: Mode.admin,
     } as Session;
     req.session.user = session;
     await req.session.save();
