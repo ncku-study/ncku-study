@@ -3,6 +3,7 @@ import { createHash } from 'crypto';
 
 import Login from '@/pages/Login';
 import routerMockProps from '@/tests/utils/routerMockProps';
+import { Mode, userSession } from '@/tests/utils/userSession';
 
 jest.mock('next/router', () => ({
     useRouter: () => routerMockProps,
@@ -18,8 +19,10 @@ global.fetch = fetchMock;
 describe('Login Page', () => {
     it('renders input fields before signed in', () => {
         const session = {
+            ...userSession,
             username: '',
             isLoggedIn: false,
+            mode: Mode.admin,
         };
         render(<Login user={session} />);
 
@@ -31,8 +34,10 @@ describe('Login Page', () => {
 
     it('handles onSubmit and encrypts by sha-256', async () => {
         const session = {
+            ...userSession,
             username: '',
             isLoggedIn: false,
+            mode: Mode.admin,
         };
         render(<Login user={session} />);
 
@@ -56,8 +61,10 @@ describe('Login Page', () => {
 
     it('prevents duplicate signed in', () => {
         const session = {
+            ...userSession,
             username: 'someone',
             isLoggedIn: true,
+            mode: Mode.admin,
         };
         render(<Login user={session} />);
 

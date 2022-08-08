@@ -1,24 +1,16 @@
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import { useRouter } from 'next/router';
-import { FC, useContext, useMemo } from 'react';
+import { FC, useContext } from 'react';
 
 import { useMedia } from '@/utils/index';
 import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
-import { adminRouters, routers } from './routes';
-import { DrawerContent, ListItemText, useStyle } from './style';
+import SideBarItems from './SideBarItems';
+import { DrawerContent, useStyle } from './style';
+import useInitUserModeByRoute from './useInitUserModeByRoute';
 import useSideBarClick from './useSideBarClick';
 
 const drawerWidth = 110;
-
-function checkURLActivity(target: string, condition: string[] | string) {
-    if (Array.isArray(condition)) {
-        return condition.includes(target);
-    }
-    return target === condition;
-}
 
 interface SideBarProps {
     open: boolean;
@@ -29,19 +21,12 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
-    const { isLoggedIn } = useContext(GlobalLayoutContext);
+    const { isLoggedIn, mode, setMode } = useContext(GlobalLayoutContext);
 
+    useInitUserModeByRoute(router, setMode);
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,
     });
-
-    const list = useMemo(
-        () =>
-            router.pathname.startsWith('/admin')
-                ? adminRouters(isLoggedIn)
-                : routers,
-        [isLoggedIn, router.pathname]
-    );
 
     return (
         <Drawer
@@ -57,32 +42,11 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
         >
             <DrawerContent>
                 <List component="nav">
-                    {list.map((item) => (
-                        <ListItem
-                            button
-                            key={item.text}
-                            className={styles.listItem}
-                            component="a"
-                            onClick={() =>
-                                handleClick(
-                                    Array.isArray(item.url)
-                                        ? item.url[0]
-                                        : item.url
-                                )
-                            }
-                        >
-                            <ListItemIcon
-                                className={
-                                    checkURLActivity(router.pathname, item.url)
-                                        ? styles.listItemIconSelected
-                                        : styles.listItemIcon
-                                }
-                            >
-                                {item.icon}
-                            </ListItemIcon>
-                            <ListItemText>{item.text}</ListItemText>
-                        </ListItem>
-                    ))}
+                    <SideBarItems
+                        isLoggedIn={isLoggedIn}
+                        mode={mode}
+                        onClick={handleClick}
+                    />
                 </List>
             </DrawerContent>
         </Drawer>

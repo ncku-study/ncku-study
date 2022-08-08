@@ -3,9 +3,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import sessionOptions from '~/lib/session';
 
+export enum Mode {
+    normal,
+    admin,
+}
+
 export type Session = {
     username: string;
     isLoggedIn: boolean;
+    mode: Mode;
 };
 
 function route(req: NextApiRequest, res: NextApiResponse<Session>) {
@@ -15,6 +21,7 @@ function route(req: NextApiRequest, res: NextApiResponse<Session>) {
         res.status(401).json({
             username: '',
             isLoggedIn: false,
+            mode: Mode.normal,
         });
         return;
     }
