@@ -5,7 +5,7 @@ import { FC, useMemo } from 'react';
 
 import { Mode } from '~/pages/api/user';
 import { ListItemText, useStyle } from '../style';
-import advancedRoutes from './routes';
+import concatedRoutes from './routes';
 
 function checkURLActivity(target: string, condition: string[] | string) {
     if (Array.isArray(condition)) {
@@ -29,36 +29,41 @@ const SideBarItems: FC<SideBarItemsProps> = ({
     const router = useRouter();
 
     const list = useMemo(
-        () => advancedRoutes({ isLoggedIn, mode }),
+        () => concatedRoutes({ isLoggedIn, mode }),
         [isLoggedIn, mode]
     );
 
     return (
         <>
-            {list.map((item) => (
-                <ListItem
-                    button
-                    key={item.text}
-                    className={styles.listItem}
-                    component="a"
-                    onClick={() =>
-                        handleClick(
-                            Array.isArray(item.url) ? item.url[0] : item.url
-                        )
-                    }
-                >
-                    <ListItemIcon
-                        className={
-                            checkURLActivity(router.pathname, item.url)
-                                ? styles.listItemIconSelected
-                                : styles.listItemIcon
-                        }
-                    >
-                        {item.icon}
-                    </ListItemIcon>
-                    <ListItemText>{item.text}</ListItemText>
-                </ListItem>
-            ))}
+            {list.map(
+                (item) =>
+                    item && (
+                        <ListItem
+                            button
+                            key={item.text}
+                            className={styles.listItem}
+                            component="a"
+                            onClick={() =>
+                                handleClick(
+                                    Array.isArray(item.url)
+                                        ? item.url[0]
+                                        : item.url
+                                )
+                            }
+                        >
+                            <ListItemIcon
+                                className={
+                                    checkURLActivity(router.pathname, item.url)
+                                        ? styles.listItemIconSelected
+                                        : styles.listItemIcon
+                                }
+                            >
+                                {item.icon}
+                            </ListItemIcon>
+                            <ListItemText>{item.text}</ListItemText>
+                        </ListItem>
+                    )
+            )}
         </>
     );
 };

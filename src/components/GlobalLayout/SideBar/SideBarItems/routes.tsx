@@ -12,6 +12,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Mode } from '~/pages/api/user';
 
 const iconStyle = { width: '1.9rem', height: '1.9rem' };
+
 const basicRoutes = (mode: Mode) => {
     switch (mode) {
         case Mode.normal:
@@ -20,29 +21,64 @@ const basicRoutes = (mode: Mode) => {
                     text: '轉輔雙主',
                     icon: <ImportContactsIcon style={iconStyle} />,
                     url: ['/', '/major'],
+                    isLoggedIn: false,
                 },
                 {
                     text: '學業心得',
                     icon: <SchoolIcon style={iconStyle} />,
                     url: '/study',
+                    isLoggedIn: false,
                 },
                 {
                     text: '我要分享',
                     icon: <PostAddIcon style={iconStyle} />,
                     url: '/post',
+                    isLoggedIn: false,
                 },
                 {
                     text: '聯絡我們',
                     icon: <HowToVoteIcon style={iconStyle} />,
                     url: 'https://forms.gle/qqrnLmhQoLyZ1BULA',
+                    isLoggedIn: false,
+                },
+                {
+                    text: '進入後台',
+                    icon: <BrightnessHighIcon style={iconStyle} />,
+                    url: '/admin',
+                    isLoggedIn: true,
                 },
             ];
         case Mode.admin:
             return [
                 {
+                    text: '審查學業',
+                    icon: <SchoolIcon style={iconStyle} />,
+                    url: '/admin/study',
+                    isLoggedIn: true,
+                },
+                {
+                    text: '審查轉輔轉',
+                    icon: <ImportContactsIcon style={iconStyle} />,
+                    url: '/admin/major',
+                    isLoggedIn: true,
+                },
+                {
+                    text: '學院系設定',
+                    icon: <SettingsIcon style={iconStyle} />,
+                    url: '/admin/department',
+                    isLoggedIn: true,
+                },
+                {
+                    text: '公告設定',
+                    icon: <ErrorOutlinedIcon style={iconStyle} />,
+                    url: '/admin/announcement',
+                    isLoggedIn: true,
+                },
+                {
                     text: '回到首頁',
                     icon: <HomeIcon style={iconStyle} />,
                     url: '/',
+                    isLoggedIn: false,
                 },
             ];
         default:
@@ -50,60 +86,29 @@ const basicRoutes = (mode: Mode) => {
     }
 };
 
-interface AdvancedRoutesInterface {
+interface ConcatedRoutesInterface {
     isLoggedIn: boolean;
     mode: Mode;
 }
 
-const advancedRoutes = ({ isLoggedIn, mode }: AdvancedRoutesInterface) => {
+const concatedRoutes = ({ isLoggedIn, mode }: ConcatedRoutesInterface) => {
     const routes = basicRoutes(mode);
-    if (!isLoggedIn) return routes;
 
-    switch (mode) {
-        case Mode.normal: {
-            routes.push({
-                text: '進入後台',
-                icon: <BrightnessHighIcon style={iconStyle} />,
-                url: '/admin',
-            });
-            break;
-        }
-        case Mode.admin: {
-            routes.push(
-                {
-                    text: '審查學業',
-                    icon: <SchoolIcon style={iconStyle} />,
-                    url: '/admin/study',
-                },
-                {
-                    text: '審查轉輔轉',
-                    icon: <ImportContactsIcon style={iconStyle} />,
-                    url: '/admin/major',
-                },
-                {
-                    text: '學院系設定',
-                    icon: <SettingsIcon style={iconStyle} />,
-                    url: '/admin/department',
-                },
-                {
-                    text: '公告設定',
-                    icon: <ErrorOutlinedIcon style={iconStyle} />,
-                    url: '/admin/announcement',
-                }
-            );
-            break;
-        }
-        default:
-            break;
-    }
-
+    /** shared icons */
     routes.push({
         text: '登出',
         icon: <LogoutIcon style={iconStyle} />,
         url: '/admin/login',
+        isLoggedIn: true,
     });
+
+    if (!isLoggedIn)
+        return routes.map((route, idx, arr) => {
+            if (!route.isLoggedIn) return arr[idx];
+            return null;
+        });
 
     return routes;
 };
 
-export default advancedRoutes;
+export default concatedRoutes;

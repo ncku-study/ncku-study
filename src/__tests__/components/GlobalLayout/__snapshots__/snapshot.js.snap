@@ -231,36 +231,6 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="HomeIcon"
-                  focusable="false"
-                  style="width: 1.9rem; height: 1.9rem;"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-                  />
-                </svg>
-              </div>
-              <span
-                class="css-e8jm0n"
-              >
-                回到首頁
-              </span>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                   data-testid="SchoolIcon"
                   focusable="false"
                   style="width: 1.9rem; height: 1.9rem;"
@@ -365,6 +335,36 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
                 class="css-e8jm0n"
               >
                 公告設定
+              </span>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+            <a
+              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="HomeIcon"
+                  focusable="false"
+                  style="width: 1.9rem; height: 1.9rem;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="css-e8jm0n"
+              >
+                回到首頁
               </span>
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -487,36 +487,6 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
                 <svg
                   aria-hidden="true"
                   class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="HomeIcon"
-                  focusable="false"
-                  style="width: 1.9rem; height: 1.9rem;"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-                  />
-                </svg>
-              </div>
-              <span
-                class="css-e8jm0n"
-              >
-                回到首頁
-              </span>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
                   data-testid="SchoolIcon"
                   focusable="false"
                   style="width: 1.9rem; height: 1.9rem;"
@@ -621,6 +591,36 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
                 class="css-e8jm0n"
               >
                 公告設定
+              </span>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
+            <a
+              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="HomeIcon"
+                  focusable="false"
+                  style="width: 1.9rem; height: 1.9rem;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="css-e8jm0n"
+              >
+                回到首頁
               </span>
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
