@@ -35,35 +35,30 @@ const SideBarItems: FC<SideBarItemsProps> = ({
 
     return (
         <>
-            {list.map(
-                (item) =>
-                    item && (
-                        <ListItem
-                            button
-                            key={item.text}
-                            className={styles.listItem}
-                            component="a"
-                            onClick={() =>
-                                handleClick(
-                                    Array.isArray(item.url)
-                                        ? item.url[0]
-                                        : item.url
-                                )
-                            }
-                        >
-                            <ListItemIcon
-                                className={
-                                    checkURLActivity(router.pathname, item.url)
-                                        ? styles.listItemIconSelected
-                                        : styles.listItemIcon
-                                }
-                            >
-                                {item.icon}
-                            </ListItemIcon>
-                            <ListItemText>{item.text}</ListItemText>
-                        </ListItem>
-                    )
-            )}
+            {list.map((item) => (
+                <ListItem
+                    button
+                    key={item.text}
+                    className={styles.listItem}
+                    component="a"
+                    onClick={() =>
+                        handleClick(
+                            Array.isArray(item.url) ? item.url[0] : item.url
+                        )
+                    }
+                >
+                    <ListItemIcon
+                        className={
+                            checkURLActivity(router.pathname, item.url)
+                                ? styles.listItemIconSelected
+                                : styles.listItemIcon
+                        }
+                    >
+                        {item.icon}
+                    </ListItemIcon>
+                    <ListItemText>{item.text}</ListItemText>
+                </ListItem>
+            ))}
         </>
     );
 };

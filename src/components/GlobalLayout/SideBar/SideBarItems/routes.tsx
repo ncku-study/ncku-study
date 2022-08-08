@@ -103,10 +103,7 @@ const concatedRoutes = ({ isLoggedIn, mode }: ConcatedRoutesInterface) => {
     });
 
     if (!isLoggedIn)
-        return routes.map((route, idx, arr) => {
-            if (!route.isLoggedIn) return arr[idx];
-            return null;
-        });
+        return routes.filter((route) => route.isLoggedIn === isLoggedIn);
 
     return routes;
 };
