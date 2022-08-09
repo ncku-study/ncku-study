@@ -1,9 +1,9 @@
-import { Mode as _Mode } from '~/pages/api/user';
+import { Mode as _Mode } from '~/lib/session';
 
 export const Mode = _Mode;
 
 export const userSession = {
-    username: '',
+    username: 'anonymous',
     isLoggedIn: false,
     mode: Mode.normal,
 };

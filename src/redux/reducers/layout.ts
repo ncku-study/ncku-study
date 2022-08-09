@@ -11,7 +11,7 @@ interface LayoutState {
     user: User;
 }
 
-const initState: LayoutState = {
+export const initState: LayoutState = {
     user: {
         username: 'anonymous',
         isLoggedIn: false,

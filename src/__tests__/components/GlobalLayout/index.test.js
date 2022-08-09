@@ -1,9 +1,10 @@
 import { fireEvent, screen } from '@testing-library/react';
 
 import GlobalLayout from '@/components/GlobalLayout';
-import globalLayoutRender from '@/tests/utils/globalLayoutRender';
+import { initState as initLayoutState } from '@/redux/reducers/layout';
+import customRender from '@/tests/utils/customRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
-import { Mode, userSession } from '@/tests/utils/userSession';
+import { Mode } from '@/tests/utils/userSession';
 
 const pushedRoute = jest.fn();
 const pathnameMock = jest.fn().mockReturnValue('/');
@@ -19,8 +20,8 @@ jest.mock('next/router', () => ({
 describe('GlobalLayout', () => {
     it('renders default layout and redirect after clicking', () => {
         pathnameMock.mockReturnValue('/');
-        globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: false },
+        customRender(<GlobalLayout />, {
+            layout: initLayoutState,
         });
 
         fireEvent.click(screen.getByRole('button', { name: '我要分享' }));
@@ -35,8 +36,10 @@ describe('GlobalLayout', () => {
 
     it('renders admin layout before signed in', () => {
         pathnameMock.mockReturnValue('/admin/login');
-        globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: false, mode: Mode.admin },
+        customRender(<GlobalLayout />, {
+            layout: {
+                user: { ...initLayoutState.user, mode: Mode.admin },
+            },
         });
 
         expect(
@@ -46,8 +49,10 @@ describe('GlobalLayout', () => {
 
     it('renders admin layout after signed in (user mode)', () => {
         pathnameMock.mockReturnValue('/admin');
-        globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: Mode.normal },
+        customRender(<GlobalLayout />, {
+            layout: {
+                user: { ...initLayoutState.user, isLoggedIn: true },
+            },
         });
 
         expect(
@@ -60,8 +65,14 @@ describe('GlobalLayout', () => {
 
     it('renders admin layout after signed in (admin mode)', () => {
         pathnameMock.mockReturnValue('/admin');
-        globalLayoutRender(<GlobalLayout />, {
-            user: { ...userSession, isLoggedIn: true, mode: Mode.admin },
+        customRender(<GlobalLayout />, {
+            layout: {
+                user: {
+                    ...initLayoutState.user,
+                    isLoggedIn: true,
+                    mode: Mode.admin,
+                },
+            },
         });
 
         expect(
