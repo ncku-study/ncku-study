@@ -15,6 +15,7 @@ const customJestConfig = {
         '^@/db/(.*)$': '<rootDir>/database/$1',
         '^@/components/(.*)$': '<rootDir>/src/components/$1',
         '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
+        '^@/redux/(.*)$': '<rootDir>/src/redux/$1',
         '^@/utils/(.*)$': '<rootDir>/src/utils/$1',
         '^@/tests/(.*)$': '<rootDir>/src/__tests__/$1',
     },

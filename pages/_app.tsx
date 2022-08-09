@@ -2,9 +2,11 @@
 import { getIronSession } from 'iron-session';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
+import { Provider } from 'react-redux';
 
+import GlobalLayout from '@/components/GlobalLayout';
+import { store } from '@/redux/store';
 import sessionOptions from '~/lib/session';
-import GlobalLayout from '~/src/components/GlobalLayout';
 import { GlobalLayoutContextProvider } from '~/src/contexts/GlobalLayoutContext';
 import { Mode, Session } from './api/user';
 
@@ -19,11 +21,13 @@ const MyApp = ({
     pageProps,
     user = { username: '', isLoggedIn: false, mode: Mode.normal },
 }: MyAppProps) => (
-    <GlobalLayoutContextProvider user={user}>
-        <GlobalLayout>
-            <Component {...pageProps} />
-        </GlobalLayout>
-    </GlobalLayoutContextProvider>
+    <Provider store={store}>
+        <GlobalLayoutContextProvider user={user}>
+            <GlobalLayout>
+                <Component {...pageProps} />
+            </GlobalLayout>
+        </GlobalLayoutContextProvider>
+    </Provider>
 );
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
