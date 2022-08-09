@@ -1,14 +1,13 @@
-import { User } from '@/db/models';
+import { User as UserModel } from '@/db/models';
 import { withIronSessionApiRoute } from 'iron-session/next';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import sessionOptions from '~/lib/session';
-import { Mode, Session } from './user';
+import sessionOptions, { Mode, User } from '~/lib/session';
 
 async function route(req: NextApiRequest, res: NextApiResponse) {
     const { account, password } = await req.body;
 
-    const user = await User.findByPk(account);
+    const user = await UserModel.findByPk(account);
 
     if (user?.password !== password) {
         res.status(401).json({ username: account });
@@ -19,7 +18,7 @@ async function route(req: NextApiRequest, res: NextApiResponse) {
         username: account,
         isLoggedIn: true,
         mode: Mode.admin,
-    } as Session;
+    } as User;
     req.session.user = session;
     await req.session.save();
 

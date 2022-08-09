@@ -55,13 +55,7 @@
         "no-unused-vars": "off",
         "no-shadow": "off",
         "no-restricted-imports": "off",
-        "no-param-reassign": [
-            "error",
-            {
-                "props": true,
-                "ignorePropertyModificationsFor": ["state"]
-            }
-        ],
+        "no-param-reassign": "off",
         "prettier/prettier": [
             "error",
             {

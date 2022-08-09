@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
-import { Mode } from '~/pages/api/user';
 
-export const initMode = createAction<Mode>('INIT_MODE');
+import { Mode, User } from '~/lib/session';
+
+export const initUser = createAction<User>('INIT_USER');
 export const updateMode = createAction<Mode>('UPDATE_MODE');

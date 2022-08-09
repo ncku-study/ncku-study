@@ -7,26 +7,14 @@ import { Provider } from 'react-redux';
 import GlobalLayout from '@/components/GlobalLayout';
 import { store } from '@/redux/store';
 import sessionOptions from '~/lib/session';
-import { GlobalLayoutContextProvider } from '~/src/contexts/GlobalLayoutContext';
-import { Mode, Session } from './api/user';
 
 import '~/styles/global.scss';
 
-interface MyAppProps extends AppProps {
-    user: Session | undefined;
-}
-
-const MyApp = ({
-    Component,
-    pageProps,
-    user = { username: '', isLoggedIn: false, mode: Mode.normal },
-}: MyAppProps) => (
+const MyApp = ({ Component, pageProps }: AppProps) => (
     <Provider store={store}>
-        <GlobalLayoutContextProvider user={user}>
-            <GlobalLayout>
-                <Component {...pageProps} />
-            </GlobalLayout>
-        </GlobalLayoutContextProvider>
+        <GlobalLayout>
+            <Component {...pageProps} />
+        </GlobalLayout>
     </Provider>
 );
 

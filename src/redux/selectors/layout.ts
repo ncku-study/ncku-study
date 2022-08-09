@@ -1,9 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import selectSelf from '.';
+import selectSelf from '@/redux/selectors';
 
-// eslint-disable-next-line import/prefer-default-export
+export const userSelector = createSelector(
+    selectSelf,
+    (state) => state.layout.user
+);
+
 export const modeSelector = createSelector(
     selectSelf,
-    (state) => state.layout.mode
+    (state) => state.layout.user.mode
 );
