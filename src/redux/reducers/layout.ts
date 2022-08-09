@@ -1,6 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { initUser, updateMode } from '@/redux/actions/layout';
+import {
+    initUser,
+    updateLoginStatus,
+    updateMode,
+} from '@/redux/actions/layout';
 import { Mode, User } from '~/lib/session';
 
 interface LayoutState {
@@ -20,8 +24,11 @@ const layoutReducer = createReducer(initState, (builder) =>
         .addCase(initUser, (state, action) => {
             state.user = action.payload;
         })
+        .addCase(updateLoginStatus, (state, action) => {
+            state.user = { ...state.user, isLoggedIn: action.payload };
+        })
         .addCase(updateMode, (state, action) => {
-            state.user.mode = action.payload;
+            state.user = { ...state.user, mode: action.payload };
         })
 );
 

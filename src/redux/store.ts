@@ -2,12 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import layoutReducer from './reducers/layout';
 
-export const store = configureStore({
-    reducer: {
-        layout: layoutReducer,
-    },
-});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const genStore = (preloadedState: any) => {
+    return configureStore({
+        preloadedState,
+        reducer: {
+            layout: layoutReducer,
+        },
+    });
+};
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<ReturnType<typeof genStore>['getState']>;
 
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<typeof genStore>['dispatch'];

@@ -7,6 +7,11 @@ export const userSelector = createSelector(
     (state) => state.layout.user
 );
 
+export const loginStatusSelector = createSelector(
+    selectSelf,
+    (state) => state.layout.user.isLoggedIn
+);
+
 export const modeSelector = createSelector(
     selectSelf,
     (state) => state.layout.user.mode

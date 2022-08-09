@@ -1,10 +1,11 @@
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import { useRouter } from 'next/router';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 
+import { useAppSelector } from '@/redux/hooks';
+import { userSelector } from '@/redux/selectors/layout';
 import { useMedia } from '@/utils/index';
-import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
 import SideBarItems from './SideBarItems';
 import { DrawerContent, useStyle } from './style';
 import useInitUserModeByRoute from './useInitUserModeByRoute';
@@ -21,9 +22,10 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
     const styles = useStyle();
     const router = useRouter();
     const device = useMedia();
-    const { isLoggedIn, mode, setMode } = useContext(GlobalLayoutContext);
 
-    useInitUserModeByRoute(router, setMode);
+    const { isLoggedIn, mode } = useAppSelector(userSelector);
+
+    useInitUserModeByRoute(router);
     const { handleClick, handleToggle } = useSideBarClick({
         handleClose,
     });
