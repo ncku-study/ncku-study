@@ -2,10 +2,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
+import { useAppSelector } from '~/src/redux/hooks';
+import { userSelector } from '~/src/redux/selectors/layout';
 
-import { Mode } from '~/pages/api/user';
 import { ListItemText, useStyle } from '../style';
 import concatedRoutes from './routes';
+import useHandleSidebarClick from './useHandleSidebarClick';
 
 function checkURLActivity(target: string, condition: string[] | string) {
     if (Array.isArray(condition)) {
@@ -14,24 +16,18 @@ function checkURLActivity(target: string, condition: string[] | string) {
     return target === condition;
 }
 
-interface SideBarItemsProps {
-    isLoggedIn: boolean;
-    mode: Mode;
-    onClick: (url: string) => unknown;
-}
-
-const SideBarItems: FC<SideBarItemsProps> = ({
-    isLoggedIn,
-    mode,
-    onClick: handleClick,
-}) => {
+const SideBarItems: FC = () => {
     const styles = useStyle();
     const router = useRouter();
+
+    const { isLoggedIn, mode } = useAppSelector(userSelector);
 
     const list = useMemo(
         () => concatedRoutes({ isLoggedIn, mode }),
         [isLoggedIn, mode]
     );
+
+    const handleClick = useHandleSidebarClick();
 
     return (
         <>

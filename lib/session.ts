@@ -23,6 +23,6 @@ export type User = {
 
 declare module 'iron-session' {
     interface IronSessionData {
-        user: User;
+        user?: User;
     }
 }

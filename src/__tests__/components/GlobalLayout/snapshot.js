@@ -3,6 +3,7 @@ import { initState as initLayoutState } from '@/redux/reducers/layout';
 import customRender from '@/tests/utils/customRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
 import { Mode } from '@/tests/utils/userSession';
+import * as useMediaHook from '@/utils/useMedia';
 
 const pathnameMock = jest.fn().mockReturnValue('/');
 
@@ -34,6 +35,7 @@ describe('GlobalLayout', () => {
         pathnameMock.mockReturnValue('/admin/login');
         const { container } = customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: {
                     ...initLayoutState.user,
                     isLoggedIn: true,
@@ -48,6 +50,7 @@ describe('GlobalLayout', () => {
         pathnameMock.mockReturnValue('/admin');
         const { container } = customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: {
                     ...initLayoutState.user,
                     isLoggedIn: true,
@@ -62,11 +65,30 @@ describe('GlobalLayout', () => {
         pathnameMock.mockReturnValue('/');
         const { container } = customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: {
                     ...initLayoutState.user,
                     isLoggedIn: true,
                 },
             },
+        });
+        expect(container).toMatchSnapshot();
+    });
+});
+
+describe('Sidebar', () => {
+    it('renders sidebar unchanged (PC)', () => {
+        pathnameMock.mockReturnValue('/');
+        const { container } = customRender(<GlobalLayout />, {
+            layout: initLayoutState,
+        });
+        expect(container).toMatchSnapshot();
+    });
+    it('renders sidebar unchanged (mobile)', () => {
+        pathnameMock.mockReturnValue('/');
+        jest.spyOn(useMediaHook, 'default').mockReturnValue('mobile');
+        const { container } = customRender(<GlobalLayout />, {
+            layout: initLayoutState,
         });
         expect(container).toMatchSnapshot();
     });

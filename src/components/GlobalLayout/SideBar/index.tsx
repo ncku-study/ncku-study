@@ -1,41 +1,33 @@
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 
-import { useAppSelector } from '@/redux/hooks';
-import { userSelector } from '@/redux/selectors/layout';
+import { updateSidebarStatus } from '@/redux/actions/layout';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { sidebarStatusSelector } from '@/redux/selectors/layout';
 import { useMedia } from '@/utils/index';
 import SideBarItems from './SideBarItems';
 import { DrawerContent, useStyle } from './style';
-import useInitUserModeByRoute from './useInitUserModeByRoute';
-import useSideBarClick from './useSideBarClick';
 
 const drawerWidth = 110;
 
-interface SideBarProps {
-    open: boolean;
-    onClose: () => void;
-}
-
-const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
+const SideBar: FC = () => {
     const styles = useStyle();
-    const router = useRouter();
     const device = useMedia();
+    const dispatch = useAppDispatch();
 
-    const { isLoggedIn, mode } = useAppSelector(userSelector);
+    const isSidebarOpen = useAppSelector(sidebarStatusSelector);
 
-    useInitUserModeByRoute(router);
-    const { handleClick, handleToggle } = useSideBarClick({
-        handleClose,
-    });
+    const handleToggle = useCallback(() => {
+        dispatch(updateSidebarStatus(!isSidebarOpen));
+    }, [dispatch, isSidebarOpen]);
 
     return (
         <Drawer
             anchor="left"
             className={styles.drawer}
             variant={device === 'PC' ? 'persistent' : 'temporary'}
-            open={open}
+            open={isSidebarOpen}
             onClose={handleToggle}
             style={{ width: drawerWidth }}
             classes={{
@@ -44,11 +36,7 @@ const SideBar: FC<SideBarProps> = ({ open, onClose: handleClose }) => {
         >
             <DrawerContent>
                 <List component="nav">
-                    <SideBarItems
-                        isLoggedIn={isLoggedIn}
-                        mode={mode}
-                        onClick={handleClick}
-                    />
+                    <SideBarItems />
                 </List>
             </DrawerContent>
         </Drawer>
