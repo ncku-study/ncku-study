@@ -9,14 +9,14 @@ export default function useInitUserModeByRoute() {
     const router = useRouter();
     const dispatch = useAppDispatch();
 
-    const hadInit = useRef(false);
+    const hasInit = useRef(false);
 
     useEffect(() => {
-        if (hadInit.current) return;
+        if (hasInit.current) return;
         if (router.pathname.match(/^\/admin/)) dispatch(updateMode(Mode.admin));
         else if (router.pathname.match(/^\/(?!admin)/))
             dispatch(updateMode(Mode.normal));
 
-        hadInit.current = true;
+        hasInit.current = true;
     }, [dispatch, router.pathname]);
 }

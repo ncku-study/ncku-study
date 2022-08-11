@@ -1,11 +1,10 @@
-import MenuIcon from '@mui/icons-material/Menu';
 import { FC, useCallback } from 'react';
 
+import { updateSidebarStatus } from '@/redux/actions/layout';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { sidebarStatusSelector } from '@/redux/selectors/layout';
 import { useMedia } from '@/utils/index';
-import { updateSidebarStatus } from '~/src/redux/actions/layout';
-import { useAppDispatch, useAppSelector } from '~/src/redux/hooks';
-import { sidebarStatusSelector } from '~/src/redux/selectors/layout';
-import { MenuIconStyle, Nav } from './style';
+import { Nav, StyledMenuIcon } from './style';
 import Title from './Title';
 
 interface BannerProps {
@@ -22,13 +21,12 @@ const Banner: FC<BannerProps> = ({ isShowSearch }) => {
         dispatch(updateSidebarStatus(!isSidebarOpen));
     }, [dispatch, isSidebarOpen]);
 
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    if (!device) return <></>;
+    if (!device) return <div />;
     if (device === 'PC') return <Title isShowSearch={isShowSearch} />;
 
     return (
         <Nav>
-            <MenuIcon style={MenuIconStyle} onClick={handleClick} />
+            <StyledMenuIcon onClick={handleClick} />
             <Title isShowSearch={isShowSearch} />
         </Nav>
     );
