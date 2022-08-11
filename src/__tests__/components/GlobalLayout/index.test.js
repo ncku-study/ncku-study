@@ -88,13 +88,13 @@ describe('GlobalLayout', () => {
     });
 });
 
-describe('Sidebar', () => {
+describe('SideBar', () => {
     it('renders sidebar open on PC', () => {
         pathnameMock.mockReturnValue('/');
         customRender(<GlobalLayout />, {
             layout: {
                 ...initLayoutState,
-                isSidebarOpen: true,
+                isSideBarOpen: true,
             },
         });
 

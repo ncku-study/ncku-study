@@ -76,7 +76,7 @@ describe('GlobalLayout', () => {
     });
 });
 
-describe('Sidebar', () => {
+describe('SideBar', () => {
     it('renders sidebar unchanged (PC)', () => {
         pathnameMock.mockReturnValue('/');
         const { container } = customRender(<GlobalLayout />, {

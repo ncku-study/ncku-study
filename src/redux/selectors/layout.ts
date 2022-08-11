@@ -21,5 +21,5 @@ export const modeSelector = createSelector(
 
 export const sidebarStatusSelector = createSelector(
     layoutSelector,
-    (state) => state.isSidebarOpen
+    (state) => state.isSideBarOpen
 );

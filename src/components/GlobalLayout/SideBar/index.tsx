@@ -1,7 +1,7 @@
 import List from '@mui/material/List';
 import { FC, useCallback, useMemo } from 'react';
 
-import { updateSidebarStatus } from '@/redux/actions/layout';
+import { updateSideBarStatus } from '@/redux/actions/layout';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { sidebarStatusSelector, userSelector } from '@/redux/selectors/layout';
 import { useMedia } from '@/utils/index';
@@ -13,11 +13,11 @@ const SideBar: FC = () => {
     const device = useMedia();
     const dispatch = useAppDispatch();
 
-    const isSidebarOpen = useAppSelector(sidebarStatusSelector);
+    const isSideBarOpen = useAppSelector(sidebarStatusSelector);
 
     const handleToggle = useCallback(() => {
-        dispatch(updateSidebarStatus(!isSidebarOpen));
-    }, [dispatch, isSidebarOpen]);
+        dispatch(updateSideBarStatus(!isSideBarOpen));
+    }, [dispatch, isSideBarOpen]);
 
     const { isLoggedIn, mode } = useAppSelector(userSelector);
 
@@ -28,7 +28,7 @@ const SideBar: FC = () => {
 
     return (
         <StyledDrawer
-            open={isSidebarOpen}
+            open={isSideBarOpen}
             anchor="left"
             variant={device === 'PC' ? 'persistent' : 'temporary'}
             onClose={handleToggle}

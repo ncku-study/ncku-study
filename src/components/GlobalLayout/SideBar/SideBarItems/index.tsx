@@ -4,21 +4,21 @@ import { FC, ReactNode, useCallback } from 'react';
 import {
     updateLoginStatus,
     updateMode,
-    updateSidebarStatus,
+    updateSideBarStatus,
 } from '@/redux/actions/layout';
 import { useAppDispatch } from '@/redux/hooks';
 import { useMedia } from '@/utils/index';
 import { Mode, User } from '~/lib/session';
 import { ListItemText, StyledListemIcon, StyledListItemButton } from './style';
 
-interface SidebarItemProps {
+interface SideBarItemProps {
     data: {
         text: string;
         icon: ReactNode;
         url: string;
     };
 }
-const SideBarItems: FC<SidebarItemProps> = ({ data }) => {
+const SideBarItems: FC<SideBarItemProps> = ({ data }) => {
     const router = useRouter();
     const device = useMedia();
     const dispatch = useAppDispatch();
@@ -43,7 +43,7 @@ const SideBarItems: FC<SidebarItemProps> = ({ data }) => {
         router.push(data.url);
 
         if (device === 'PC') return;
-        dispatch(updateSidebarStatus(false));
+        dispatch(updateSideBarStatus(false));
     }, [data.url, router, device, dispatch]);
 
     return (

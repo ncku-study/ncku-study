@@ -6,26 +6,25 @@ exports[`GlobalLayout renders default layout unchanged 1`] = `
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-2 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-3 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-4 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIconSelected-6 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -48,14 +47,14 @@ exports[`GlobalLayout renders default layout unchanged 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-4 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-5 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -78,14 +77,14 @@ exports[`GlobalLayout renders default layout unchanged 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-4 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-5 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -111,14 +110,14 @@ exports[`GlobalLayout renders default layout unchanged 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-4 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-5 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -141,60 +140,22 @@ exports[`GlobalLayout renders default layout unchanged 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         >
           成大轉系/輔系/雙主修心得
         </h1>
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
@@ -207,26 +168,25 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-26 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-27 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -249,14 +209,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -279,14 +239,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -309,14 +269,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -339,14 +299,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -369,14 +329,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-28 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-29 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -399,58 +359,20 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, index page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         />
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
@@ -463,26 +385,25 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-18 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-19 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -505,14 +426,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -535,14 +456,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -565,14 +486,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -595,14 +516,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-21 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -625,14 +546,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-20 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIconSelected-22 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -655,58 +576,20 @@ exports[`GlobalLayout renders layout unchanged (signed in, admin, login page) 1`
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         />
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
@@ -719,26 +602,25 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-34 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-35 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIconSelected-38 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -761,14 +643,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-37 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -791,14 +673,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-37 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -824,14 +706,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-37 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -854,14 +736,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-37 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -884,14 +766,14 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-36 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-37 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -914,60 +796,22 @@ exports[`GlobalLayout renders layout unchanged (signed in, normal) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         >
           成大轉系/輔系/雙主修心得
         </h1>
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
@@ -980,26 +824,25 @@ exports[`GlobalLayout renders layout unchanged 1`] = `
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-10 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-11 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-12 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-13 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -1022,90 +865,51 @@ exports[`GlobalLayout renders layout unchanged 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         />
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
 </div>
 `;
 
-exports[`Sidebar renders sidebar unchanged (PC) 1`] = `
+exports[`SideBar renders sidebar unchanged (PC) 1`] = `
 <div>
   <div
     style="display: flex;"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-42 css-7ik032-MuiDrawer-docked"
-      style="width: 110px;"
+      class="MuiDrawer-root MuiDrawer-docked css-n7dyfo-MuiDrawer-docked"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 makeStyles-drawerPaper-43 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-12i7wg6-MuiPaper-root-MuiDrawer-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft css-808kbb-MuiPaper-root-MuiDrawer-paper"
         style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
       >
         <div
-          class="css-t8vo8q"
+          class="css-1j1l2wx"
         >
           <nav
             class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-44 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIconSelected-46 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -1128,14 +932,14 @@ exports[`Sidebar renders sidebar unchanged (PC) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-44 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-45 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -1158,14 +962,14 @@ exports[`Sidebar renders sidebar unchanged (PC) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-44 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-45 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -1191,14 +995,14 @@ exports[`Sidebar renders sidebar unchanged (PC) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
-            <a
-              class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-padding MuiListItem-button makeStyles-listItem-44 css-fpo853-MuiButtonBase-root-MuiListItem-root"
+            </div>
+            <div
+              class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1f7et5c-MuiButtonBase-root-MuiListItemButton-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiListItemIcon-root makeStyles-listItemIcon-45 css-cveggr-MuiListItemIcon-root"
+                class="MuiListItemIcon-root css-14w4uk-MuiListItemIcon-root"
               >
                 <svg
                   aria-hidden="true"
@@ -1221,83 +1025,44 @@ exports[`Sidebar renders sidebar unchanged (PC) 1`] = `
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
-            </a>
+            </div>
           </nav>
         </div>
       </div>
     </div>
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <header
-        class="css-1959nmn"
+        class="css-d0bwvn"
       >
         <h1
-          class="css-1104kq3"
+          class="css-1wpscps"
         >
           成大轉系/輔系/雙主修心得
         </h1>
-        <form
-          class="css-8hclqx"
-        >
-          <input
-            class="css-13v3f3n"
-          />
-          <button
-            class="css-88e0qw"
-            hidden=""
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-              data-testid="CancelIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-              />
-            </svg>
-          </button>
-          <button
-            class="css-88e0qw"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-              data-testid="SearchIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </button>
-        </form>
       </header>
     </div>
   </div>
 </div>
 `;
 
-exports[`Sidebar renders sidebar unchanged (mobile) 1`] = `
+exports[`SideBar renders sidebar unchanged (mobile) 1`] = `
 <div>
   <div
     style="display: flex;"
   >
     <div
-      class="css-1iwdhna"
+      class="css-1yitkyn"
     >
       <nav
-        class="css-1povu0j"
+        class="css-70qvj9"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1x1fq9b-MuiSvgIcon-root"
           data-testid="MenuIcon"
           focusable="false"
-          style="color: rgb(29, 30, 34); font-size: 30px;"
           viewBox="0 0 24 24"
         >
           <path
@@ -1305,51 +1070,13 @@ exports[`Sidebar renders sidebar unchanged (mobile) 1`] = `
           />
         </svg>
         <header
-          class="css-1959nmn"
+          class="css-d0bwvn"
         >
           <h1
-            class="css-1104kq3"
+            class="css-1wpscps"
           >
             成大轉系/輔系/雙主修心得
           </h1>
-          <form
-            class="css-8hclqx"
-          >
-            <input
-              class="css-13v3f3n"
-            />
-            <button
-              class="css-88e0qw"
-              hidden=""
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-jii0ml-MuiSvgIcon-root"
-                data-testid="CancelIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-                />
-              </svg>
-            </button>
-            <button
-              class="css-88e0qw"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-t49183-MuiSvgIcon-root"
-                data-testid="SearchIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                />
-              </svg>
-            </button>
-          </form>
         </header>
       </nav>
     </div>

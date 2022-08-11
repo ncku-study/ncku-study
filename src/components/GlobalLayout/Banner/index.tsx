@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import { updateSidebarStatus } from '@/redux/actions/layout';
+import { updateSideBarStatus } from '@/redux/actions/layout';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { sidebarStatusSelector } from '@/redux/selectors/layout';
 import { useMedia } from '@/utils/index';
@@ -15,11 +15,11 @@ const Banner: FC<BannerProps> = ({ isShowSearch }) => {
     const device = useMedia();
     const dispatch = useAppDispatch();
 
-    const isSidebarOpen = useAppSelector(sidebarStatusSelector);
+    const isSideBarOpen = useAppSelector(sidebarStatusSelector);
 
     const handleClick = useCallback(() => {
-        dispatch(updateSidebarStatus(!isSidebarOpen));
-    }, [dispatch, isSidebarOpen]);
+        dispatch(updateSideBarStatus(!isSideBarOpen));
+    }, [dispatch, isSideBarOpen]);
 
     if (!device) return <div />;
     if (device === 'PC') return <Title isShowSearch={isShowSearch} />;
