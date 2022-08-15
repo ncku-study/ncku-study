@@ -6,13 +6,13 @@ import { BadgeStyle, CloseIcon } from './style';
 const Badge: FC<PropsType> = ({ styleProps, textProps, eventProps }) => {
     const className = styleProps?.className;
     const value = textProps?.value;
-    const onClose = eventProps?.onClose;
+    const onClick = eventProps?.onClick;
     return (
         <BadgeStyle className={className}>
             <>
                 {value}
-                {onClose && (
-                    <ClickListener>
+                {onClick && (
+                    <ClickListener onClick={onClick}>
                         <CloseIcon />
                     </ClickListener>
                 )}
