@@ -6,13 +6,14 @@ import { useRef } from 'react';
 import { Provider } from 'react-redux';
 
 import GlobalLayout from '@/components/GlobalLayout';
+import { genStore } from '@/redux/store';
 import sessionOptions, { Mode, User } from '~/lib/session';
 
-import { genStore } from '@/redux/store';
 import '~/styles/global.scss';
 
 interface MyAppProps extends AppProps {
-    user: User | undefined;
+    // eslint-disable-next-line react/require-default-props
+    user?: User;
 }
 
 const MyApp = ({

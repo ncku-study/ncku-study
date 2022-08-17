@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { useContext } from 'react';
 
 import { NavSearchContext } from '@/components/GlobalLayout/NavSearchProvider';
-import { H1, H2, Header, Search } from './style';
+import { H1, H2, Header, StyledSearchBar } from './style';
 import titleWording from './title.json';
 
 const mapPathnameToTitle = (pathname: string) => {
@@ -36,7 +36,7 @@ const Title: FC<TitleProps> = ({ isShowSearch }) => {
     return (
         <Header>
             <TitleElement>{mapPathnameToTitle(router.pathname)}</TitleElement>
-            <Search isShow={isShowSearch} onSubmit={handleSearch} />
+            {isShowSearch && <StyledSearchBar onSubmit={handleSearch} />}
         </Header>
     );
 };
