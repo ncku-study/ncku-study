@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test for atom - Badge render Badge with className 1`] = `
+exports[`test for atom - Badge render Badge with className and value 1`] = `
 <div>
   <span
     class="testingClassName css-1i1ahpj"
-    data-testid="Badge/testId"
   >
-    <span />
+    test
   </span>
 </div>
 `;
@@ -15,11 +14,8 @@ exports[`test for atom - Badge render Badge with value 1`] = `
 <div>
   <span
     class="css-1i1ahpj"
-    data-testid="Badge/testId"
   >
-    <span>
-      this is a super weird test
-    </span>
+    this is a super weird test
   </span>
 </div>
 `;
@@ -28,9 +24,6 @@ exports[`test for atom - Badge render Badge without props must be same 1`] = `
 <div>
   <span
     class="css-1i1ahpj"
-    data-testid="Badge/testId"
-  >
-    <span />
-  </span>
+  />
 </div>
 `;

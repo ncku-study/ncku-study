@@ -10,9 +10,9 @@ const Badge: FC<PropsType> = ({ styleProps, textProps, eventProps }) => {
     const value = textProps?.value;
     const onClick = eventProps?.onClick;
     return (
-        <BadgeStyle data-testid={testId} className={className}>
+        <BadgeStyle className={className}>
             <>
-                <span>{value}</span>
+                {value}
                 {onClick && (
                     <ClickListener onClick={onClick}>
                         <CloseIcon />

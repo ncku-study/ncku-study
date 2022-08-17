@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import Badge, { testId } from '~/src/components/atom/Badge';
+import Badge from '~/src/components/atom/Badge';
 
 describe('test for atom - Badge', () => {
     it('render Badge without props must be same', () => {
@@ -16,10 +16,14 @@ describe('test for atom - Badge', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('render Badge with className', () => {
+    it('render Badge with className and value', () => {
         const className = 'testingClassName';
-        const { container } = render(<Badge styleProps={{ className }} />);
-        expect(screen.getByTestId(testId).classList).toContain(className);
+        const value = 'test';
+        const { container } = render(
+            <Badge styleProps={{ className }} textProps={{ value }} />
+        );
+
+        expect(screen.getByText(value).classList).toContain(className);
         expect(container).toMatchSnapshot();
     });
 
