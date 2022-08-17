@@ -1,7 +1,5 @@
 import type { IronSessionOptions } from 'iron-session';
 
-import type { Session } from '~/pages/api/user';
-
 const sessionOptions: IronSessionOptions = {
     password: process.env.SECRET_COOKIE_PASSWORD as string,
     cookieName: 'my-app/session',
@@ -10,10 +8,21 @@ const sessionOptions: IronSessionOptions = {
     },
 };
 
-declare module 'iron-session' {
-    interface IronSessionData {
-        user: Session;
-    }
+export default sessionOptions;
+
+export enum Mode {
+    normal,
+    admin,
 }
 
-export default sessionOptions;
+export type User = {
+    username: string;
+    isLoggedIn: boolean;
+    mode: Mode;
+};
+
+declare module 'iron-session' {
+    interface IronSessionData {
+        user: User;
+    }
+}

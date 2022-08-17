@@ -1,10 +1,9 @@
 import { withIronSessionApiRoute } from 'iron-session/next';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import sessionOptions from '~/lib/session';
-import { Mode, Session } from './user';
+import sessionOptions, { Mode, User } from '~/lib/session';
 
-function route(req: NextApiRequest, res: NextApiResponse<Session>) {
+function route(req: NextApiRequest, res: NextApiResponse<User>) {
     req.session.destroy();
     res.json({ username: '', isLoggedIn: false, mode: Mode.admin });
 }

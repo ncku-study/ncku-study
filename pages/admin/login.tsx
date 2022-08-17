@@ -3,8 +3,7 @@ import { NextPage } from 'next';
 
 import type { LoginProps } from '@/pages/Login';
 import LoginPage from '@/pages/Login';
-import sessionOptions from '~/lib/session';
-import { Mode, Session } from '../api/user';
+import sessionOptions, { Mode, User } from '~/lib/session';
 
 export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
     const { user } = req.session;
@@ -16,7 +15,7 @@ export const getServerSideProps = withIronSessionSsr(async ({ req }) => {
                     username: '',
                     isLoggedIn: false,
                     mode: Mode.admin,
-                } as Session,
+                } as User,
             },
         };
 

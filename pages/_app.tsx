@@ -2,29 +2,40 @@
 import { getIronSession } from 'iron-session';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
+import { useRef } from 'react';
+import { Provider } from 'react-redux';
 
-import sessionOptions from '~/lib/session';
-import GlobalLayout from '~/src/components/GlobalLayout';
-import { GlobalLayoutContextProvider } from '~/src/contexts/GlobalLayoutContext';
-import { Mode, Session } from './api/user';
+import GlobalLayout from '@/components/GlobalLayout';
+import sessionOptions, { Mode, User } from '~/lib/session';
 
+import { genStore } from '@/redux/store';
 import '~/styles/global.scss';
 
 interface MyAppProps extends AppProps {
-    user: Session | undefined;
+    user: User | undefined;
 }
 
 const MyApp = ({
     Component,
     pageProps,
-    user = { username: '', isLoggedIn: false, mode: Mode.normal },
-}: MyAppProps) => (
-    <GlobalLayoutContextProvider user={user}>
-        <GlobalLayout>
-            <Component {...pageProps} />
-        </GlobalLayout>
-    </GlobalLayoutContextProvider>
-);
+    user = { username: 'anonymous', isLoggedIn: false, mode: Mode.normal },
+}: MyAppProps) => {
+    const store = useRef(
+        genStore({
+            layout: {
+                user,
+            },
+        })
+    );
+
+    return (
+        <Provider store={store.current}>
+            <GlobalLayout>
+                <Component {...pageProps} />
+            </GlobalLayout>
+        </Provider>
+    );
+};
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
     const appProps = await App.getInitialProps(appContext);

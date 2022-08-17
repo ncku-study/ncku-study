@@ -2,7 +2,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import type { FC } from 'react';
 
-import type { Session } from '~/pages/api/user';
+import { User } from '~/lib/session';
 
 // import BoxIcon from '~/src/img/box.svg';
 import {
@@ -20,7 +20,7 @@ import {
 import useLogin from './useLogin';
 
 export interface LoginProps {
-    user: Session;
+    user: User;
 }
 
 const Login: FC<LoginProps> = ({ user }) => {

@@ -24,6 +24,14 @@
     "rules": {
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/no-restricted-imports": [
+            "warn",
+            {
+                "name": "react-redux",
+                "importNames": ["useSelector", "useDispatch"],
+                "message": "Use typed hooks `useAppDispatch` and `useAppSelector` instead."
+            }
+        ],
         "react/jsx-filename-extension": "off",
         "react/function-component-definition": [
             "error",
@@ -46,6 +54,8 @@
         "import/no-cycle": "off",
         "no-unused-vars": "off",
         "no-shadow": "off",
+        "no-restricted-imports": "off",
+        "no-param-reassign": "off",
         "prettier/prettier": [
             "error",
             {
