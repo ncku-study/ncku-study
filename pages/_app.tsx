@@ -6,10 +6,10 @@ import { useRef } from 'react';
 import { Provider } from 'react-redux';
 
 import GlobalLayout from '@/components/GlobalLayout';
+import { genStore } from '@/redux/store';
 import sessionOptions, { Mode, User } from '~/lib/session';
 import { NavSearchProvider } from '~/src/components/GlobalLayout/NavSearchBarContext';
 
-import { genStore } from '@/redux/store';
 import '~/styles/global.scss';
 
 interface MyAppProps extends AppProps {

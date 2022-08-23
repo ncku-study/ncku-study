@@ -36,7 +36,7 @@ const Title: FC<TitleProps> = ({ isShowSearch }) => {
     return (
         <Header>
             <TitleElement>{mapPathnameToTitle(router.pathname)}</TitleElement>
-            <Search isShow={isShowSearch} onSubmit={handleSearch} />
+            {isShowSearch && <StyledSearchBar onSubmit={handleSearch} />}
         </Header>
     );
 };

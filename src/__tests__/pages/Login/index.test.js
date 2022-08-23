@@ -1,7 +1,9 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { createHash } from 'crypto';
 
 import Login from '@/pages/Login';
+import { initState as initLayoutState } from '@/redux/reducers/layout';
+import customRender from '@/tests/utils/customRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
 import { Mode, userSession } from '@/tests/utils/userSession';
 
@@ -16,15 +18,17 @@ const fetchMock = jest.fn().mockImplementation(() =>
 );
 global.fetch = fetchMock;
 
-describe('Login Page', () => {
+describe('Page: Login', () => {
     it('renders input fields before signed in', () => {
         const session = {
             ...userSession,
-            username: '',
+            username: 'anonymous',
             isLoggedIn: false,
             mode: Mode.admin,
         };
-        render(<Login user={session} />);
+        customRender(<Login user={session} />, {
+            layout: initLayoutState,
+        });
 
         expect(
             screen.getByRole('textbox', { name: 'account' })
@@ -35,11 +39,13 @@ describe('Login Page', () => {
     it('handles onSubmit and encrypts by sha-256', async () => {
         const session = {
             ...userSession,
-            username: '',
+            username: 'anonymous',
             isLoggedIn: false,
             mode: Mode.admin,
         };
-        render(<Login user={session} />);
+        customRender(<Login user={session} />, {
+            layout: initLayoutState,
+        });
 
         const user = {
             account: 'someone',
@@ -66,7 +72,17 @@ describe('Login Page', () => {
             isLoggedIn: true,
             mode: Mode.admin,
         };
-        render(<Login user={session} />);
+        customRender(<Login user={session} />, {
+            layout: {
+                ...initLayoutState,
+                user: {
+                    ...initLayoutState.user,
+                    username: session.username,
+                    isLoggedIn: session.isLoggedIn,
+                    mode: session.mode,
+                },
+            },
+        });
 
         expect(
             screen.queryByRole('textbox', { name: 'account' })
