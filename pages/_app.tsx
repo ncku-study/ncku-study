@@ -8,11 +8,11 @@ import { Provider } from 'react-redux';
 import GlobalLayout from '@/components/GlobalLayout';
 import { genStore } from '@/redux/store';
 import sessionOptions, { Mode, User } from '~/lib/session';
+import { NavSearchProvider } from '~/src/components/GlobalLayout/NavSearchBarContext';
 
 import '~/styles/global.scss';
 
 interface MyAppProps extends AppProps {
-    // eslint-disable-next-line react/require-default-props
     user?: User;
 }
 
@@ -31,9 +31,11 @@ const MyApp = ({
 
     return (
         <Provider store={store.current}>
-            <GlobalLayout>
-                <Component {...pageProps} />
-            </GlobalLayout>
+            <NavSearchProvider>
+                <GlobalLayout>
+                    <Component {...pageProps} />
+                </GlobalLayout>
+            </NavSearchProvider>
         </Provider>
     );
 };

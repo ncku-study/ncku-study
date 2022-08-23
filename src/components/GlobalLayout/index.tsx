@@ -4,7 +4,6 @@ import { FC, PropsWithChildren } from 'react';
 
 import { globalTheme } from '~/styles/global';
 import Banner from './Banner';
-import { NavSearchProvider } from './NavSearchProvider';
 import SideBar from './SideBar';
 import { Container } from './style';
 import useInitUserModeByRoute from './useInitUserModeByRoute';
@@ -24,12 +23,10 @@ const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
         <ThemeProvider theme={globalTheme}>
             <div style={{ display: 'flex' }}>
                 <SideBar />
-                <NavSearchProvider>
-                    <Container isShowSearch={isShowSearch}>
-                        <Banner isShowSearch={isShowSearch} />
-                        {children}
-                    </Container>
-                </NavSearchProvider>
+                <Container isShowSearch={isShowSearch}>
+                    <Banner isShowSearch={isShowSearch} />
+                    {children}
+                </Container>
             </div>
         </ThemeProvider>
     );

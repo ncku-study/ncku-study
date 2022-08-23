@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import SearchBar from '@/components/SearchBar';
+import SearchBar, { SearchBarProps } from '@/components/SearchBar';
 
 export const H1 = styled('h1')({
     width: '100%',
@@ -32,7 +32,7 @@ export const H2 = styled('h2')({
     },
 });
 
-export const StyledSearchBar = styled(SearchBar)({
+export const StyledSearchBar = styled(SearchBar)<SearchBarProps>({
     width: '550px',
     height: '45px',
     display: 'flex',
