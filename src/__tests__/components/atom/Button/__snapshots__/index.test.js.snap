@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - Button render Badge default theme must be same 1`] = `
+<div>
+  <button
+    class="css-1tlwuer"
+  />
+</div>
+`;
+
+exports[`test for atom - Button render Badge with specify props must be same 1`] = `
+<div>
+  <button
+    class="css-jb9n5v"
+    height="20px"
+  />
+</div>
+`;
