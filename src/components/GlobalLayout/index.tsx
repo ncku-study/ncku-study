@@ -4,7 +4,6 @@ import { FC, PropsWithChildren, useState } from 'react';
 
 import { globalTheme } from '~/styles/global';
 import Banner from './Banner';
-import { NavSearchProvider } from './NavSearchProvider';
 import SideBar from './SideBar';
 import { Container } from './style';
 import useSideBarEffect from './useSideBarEffect';
@@ -22,19 +21,11 @@ const GlobalLayout: FC<PropsWithChildren> = ({ children }) => {
     return (
         <ThemeProvider theme={globalTheme}>
             <div style={{ display: 'flex' }}>
-                <SideBar
-                    open={isSideBarOpen}
-                    onClose={() => setSideBarOpen(false)}
-                />
-                <NavSearchProvider>
-                    <Container isShowSearch={isShowSearch}>
-                        <Banner
-                            isShowSearch={isShowSearch}
-                            setSideBarOpen={setSideBarOpen}
-                        />
-                        {children}
-                    </Container>
-                </NavSearchProvider>
+                <SideBar />
+                <Container isShowSearch={isShowSearch}>
+                    <Banner isShowSearch={isShowSearch} />
+                    {children}
+                </Container>
             </div>
         </ThemeProvider>
     );

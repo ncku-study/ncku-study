@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import type { FC } from 'react';
 import { useContext } from 'react';
 
-import { NavSearchContext } from '@/components/GlobalLayout/NavSearchProvider';
-import { H1, H2, Header, Search } from './style';
+import { NavSearchHandlerContext } from '@/components/GlobalLayout/NavSearchBarContext';
+import { H1, H2, Header, StyledSearchBar } from './style';
 import titleWording from './title.json';
 
 const mapPathnameToTitle = (pathname: string) => {
@@ -30,7 +30,7 @@ interface TitleProps {
 const Title: FC<TitleProps> = ({ isShowSearch }) => {
     const router = useRouter();
     const { id } = router.query;
-    const handleSearch = useContext(NavSearchContext);
+    const handleSearch = useContext(NavSearchHandlerContext);
 
     const TitleElement = id ? H2 : H1;
     return (

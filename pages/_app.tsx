@@ -7,12 +7,13 @@ import { Provider } from 'react-redux';
 
 import GlobalLayout from '@/components/GlobalLayout';
 import sessionOptions, { Mode, User } from '~/lib/session';
+import { NavSearchProvider } from '~/src/components/GlobalLayout/NavSearchBarContext';
 
 import { genStore } from '@/redux/store';
 import '~/styles/global.scss';
 
 interface MyAppProps extends AppProps {
-    user: User | undefined;
+    user?: User;
 }
 
 const MyApp = ({
@@ -30,9 +31,11 @@ const MyApp = ({
 
     return (
         <Provider store={store.current}>
-            <GlobalLayout>
-                <Component {...pageProps} />
-            </GlobalLayout>
+            <NavSearchProvider>
+                <GlobalLayout>
+                    <Component {...pageProps} />
+                </GlobalLayout>
+            </NavSearchProvider>
         </Provider>
     );
 };
