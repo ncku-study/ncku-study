@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test for atom - Badge render Badge with className and value 1`] = `
+exports[`test for atom - Badge render Badge with specify styleProps must render correctly 1`] = `
 <div>
   <span
     class="testingClassName css-1i1ahpj"
@@ -10,7 +10,7 @@ exports[`test for atom - Badge render Badge with className and value 1`] = `
 </div>
 `;
 
-exports[`test for atom - Badge render Badge with value 1`] = `
+exports[`test for atom - Badge render Badge with specify textProps must render correctly 1`] = `
 <div>
   <span
     class="css-1i1ahpj"

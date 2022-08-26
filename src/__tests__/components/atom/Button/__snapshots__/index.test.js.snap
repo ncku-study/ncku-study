@@ -8,7 +8,7 @@ exports[`test for atom - Button render Badge default theme must be same 1`] = `
 </div>
 `;
 
-exports[`test for atom - Button render Badge with specify props must be same 1`] = `
+exports[`test for atom - Button render Badge with specify props must render correctly 1`] = `
 <div>
   <button
     class="css-jb9n5v"

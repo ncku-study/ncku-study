@@ -8,7 +8,7 @@ describe('test for atom - Button', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('render Badge with specify props must be same', () => {
+    it('render Badge with specify props must render correctly', () => {
         const props = {
             height: '20px',
             weight: '100px',
