@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
-import { useCallback, useContext } from 'react';
+import { useCallback } from 'react';
 
 import { useMedia } from '@/utils/index';
-import { Mode, Session } from '~/pages/api/user';
-import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
+import { Mode, User } from '~/lib/session';
+import { updateLoginStatus, updateMode } from '~/src/redux/actions/layout';
+import { useAppDispatch } from '~/src/redux/hooks';
 
 interface UseSideBarClickInterface {
     handleClose: () => void;
@@ -14,7 +15,7 @@ export default function useSideBarClick({
 }: UseSideBarClickInterface) {
     const router = useRouter();
     const device = useMedia();
-    const { setLoginStatus, setMode } = useContext(GlobalLayoutContext);
+    const dispatch = useAppDispatch();
 
     const handleClick = useCallback(
         async (url: string) => {
@@ -24,17 +25,18 @@ export default function useSideBarClick({
                 return;
             }
 
-            if (url === '/' || url === 'major') setMode?.(Mode.normal);
-            else if (url === '/admin') setMode?.(Mode.admin);
+            if (url === '/' || url === 'major')
+                dispatch(updateMode(Mode.normal));
+            else if (url === '/admin') dispatch(updateMode(Mode.admin));
             else if (url === '/admin/login') {
-                const res: Session = await (await fetch('/api/logout')).json();
-                setLoginStatus?.(res.isLoggedIn);
+                const res: User = await (await fetch('/api/logout')).json();
+                dispatch(updateLoginStatus(res.isLoggedIn));
             }
 
             router.push(url);
             if (device !== 'PC') handleClose();
         },
-        [router, device, handleClose, setMode, setLoginStatus]
+        [dispatch, router, device, handleClose]
     );
 
     const handleToggle = useCallback(

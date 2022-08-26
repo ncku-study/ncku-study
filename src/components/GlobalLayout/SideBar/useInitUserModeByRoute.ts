@@ -1,14 +1,17 @@
 import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import { Mode } from '~/pages/api/user';
+import { updateMode } from '@/redux/actions/layout';
+import { useAppDispatch } from '@/redux/hooks';
+import { Mode } from '~/lib/session';
 
-export default function useInitUserModeByRoute(
-    router: NextRouter,
-    setMode?: (mode: Mode) => void
-) {
+export default function useInitUserModeByRoute(router: NextRouter) {
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
-        if (router.pathname.match(/^\/admin\/login$/)) setMode?.(Mode.admin);
-        else if (router.pathname.match(/^\/$/)) setMode?.(Mode.normal);
-    }, [router.pathname, setMode]);
+        if (router.pathname.match(/^\/admin\/login$/))
+            dispatch(updateMode(Mode.admin));
+        else if (router.pathname.match(/^\/$/))
+            dispatch(updateMode(Mode.normal));
+    }, [dispatch, router.pathname]);
 }

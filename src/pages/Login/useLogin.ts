@@ -1,16 +1,17 @@
 import { createHash } from 'crypto';
 import { useRouter } from 'next/router';
-import { FormEvent, useCallback, useContext, useRef, useState } from 'react';
+import { FormEvent, useCallback, useRef, useState } from 'react';
 
-import { Session } from '~/pages/api/user';
-import { GlobalLayoutContext } from '~/src/contexts/GlobalLayoutContext';
+import { useAppDispatch } from '@/redux/hooks';
+import { User } from '~/lib/session';
+import { updateLoginStatus } from '~/src/redux/actions/layout';
 
 export default function useLogin() {
     const [loading, setLoading] = useState<boolean | undefined>(undefined);
     const accountRef = useRef<HTMLInputElement | undefined>(undefined);
     const passwordRef = useRef<HTMLInputElement | undefined>(undefined);
-    const { setLoginStatus } = useContext(GlobalLayoutContext);
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const { from } = /* location.state || */ {
         from: { pathname: '/admin' },
@@ -40,16 +41,16 @@ export default function useLogin() {
                 body: JSON.stringify({ account, password }),
             });
 
-            const data: Session = await res.json();
+            const data: User = await res.json();
 
             if (!data.isLoggedIn) {
                 setLoading(false);
                 return;
             }
-            setLoginStatus?.(data.isLoggedIn);
+            dispatch(updateLoginStatus(data.isLoggedIn));
             handleRedirect();
         },
-        [handleRedirect, setLoginStatus]
+        [dispatch, handleRedirect]
     );
 
     return { loading, accountRef, passwordRef, handleSubmit };

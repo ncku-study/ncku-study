@@ -9,7 +9,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import SchoolIcon from '@mui/icons-material/School';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { Mode } from '~/pages/api/user';
+import { Mode } from '~/lib/session';
 
 const iconStyle = { width: '1.9rem', height: '1.9rem' };
 

@@ -6,6 +6,7 @@
             "@/db/*": ["database/*"],
             "@/components/*": ["src/components/*"],
             "@/pages/*": ["src/pages/*"],
+            "@/redux/*": ["src/redux/*"],
             "@/utils/*": ["src/utils/*"],
             "@/tests/*": ["src/__tests__/*"]
         },
