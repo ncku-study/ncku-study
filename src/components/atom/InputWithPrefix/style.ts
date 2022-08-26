@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+// eslint-disable-next-line import/prefer-default-export
 export const InputFieldWithPrefix = styled.div`
     display: inline-flex;
     align-items: flex-end;
