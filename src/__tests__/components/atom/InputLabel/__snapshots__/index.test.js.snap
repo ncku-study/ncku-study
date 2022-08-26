@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - InputLabel render InputLabel without props must be same 1`] = `
+<div>
+  <label
+    class="MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-root MuiFormLabel-colorPrimary css-1hw88bb-MuiFormLabel-root-MuiInputLabel-root"
+  />
+</div>
+`;
