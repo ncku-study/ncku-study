@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - Input render Badge without props must be same 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1c4xic8-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiOutlinedInput-input MuiInputBase-input makeStyles-input-3 css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r0:"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-hdw1oc"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test for atom - Input render Input with specify elementAttrs must work correctly 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1c4xic8-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiOutlinedInput-input MuiInputBase-input makeStyles-input-12 css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r3:"
+        max="100"
+        min="50"
+        step="0.1"
+        type="number"
+        value="99999"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-hdw1oc"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test for atom - Input render Input with specify elementAttrs must work correctly when error type 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1c4xic8-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiOutlinedInput-input MuiInputBase-input makeStyles-input-15 css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r4:"
+        max="100"
+        min="50"
+        step="0.1"
+        type="number"
+        value="surprise test"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-hdw1oc"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test for atom - Input render Input with specify textProps must render correctly 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1c4xic8-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled makeStyles-labelText-4 css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="true"
+      for=":r1:"
+      id=":r1:-label"
+    >
+      this is the wording
+    </label>
+    <div
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiOutlinedInput-input MuiInputBase-input makeStyles-input-6 css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+        id=":r1:"
+        type="text"
+        value="testing value here !"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-1in441m"
+        >
+          <span>
+            this is the wording
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
