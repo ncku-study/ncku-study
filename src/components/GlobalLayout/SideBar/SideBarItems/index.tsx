@@ -1,65 +1,56 @@
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import { useRouter } from 'next/router';
-import { FC, useMemo } from 'react';
+import { FC, ReactNode, useCallback } from 'react';
 
-import { Mode } from '~/pages/api/user';
-import { ListItemText, useStyle } from '../style';
-import concatedRoutes from './routes';
+import {
+    updateLoginStatus,
+    updateMode,
+    updateSideBarStatus,
+} from '@/redux/actions/layout';
+import { useAppDispatch } from '@/redux/hooks';
+import { useMedia } from '@/utils/index';
+import { Mode, User } from '~/lib/session';
+import { ListItemText, StyledListemIcon, StyledListItemButton } from './style';
 
-function checkURLActivity(target: string, condition: string[] | string) {
-    if (Array.isArray(condition)) {
-        return condition.includes(target);
-    }
-    return target === condition;
+interface SideBarItemProps {
+    data: {
+        text: string;
+        icon: ReactNode;
+        url: string;
+    };
 }
-
-interface SideBarItemsProps {
-    isLoggedIn: boolean;
-    mode: Mode;
-    onClick: (url: string) => unknown;
-}
-
-const SideBarItems: FC<SideBarItemsProps> = ({
-    isLoggedIn,
-    mode,
-    onClick: handleClick,
-}) => {
-    const styles = useStyle();
+const SideBarItems: FC<SideBarItemProps> = ({ data }) => {
     const router = useRouter();
+    const device = useMedia();
+    const dispatch = useAppDispatch();
 
-    const list = useMemo(
-        () => concatedRoutes({ isLoggedIn, mode }),
-        [isLoggedIn, mode]
-    );
+    const handleClick = useCallback(async () => {
+        // 問卷
+        if (data.url[0] !== '/') {
+            window.open(data.url, '_blank')?.focus();
+            return;
+        }
+
+        if (data.url === '/' || data.url === 'major') {
+            dispatch(updateMode(Mode.normal));
+        } else if (data.url === '/admin') {
+            dispatch(updateMode(Mode.admin));
+        } else if (data.url === '/admin/login') {
+            const res: User = await (await fetch('/api/logout')).json();
+            dispatch(updateLoginStatus(res.isLoggedIn));
+            dispatch(updateMode(Mode.admin));
+        }
+
+        router.push(data.url);
+
+        if (device === 'PC') return;
+        dispatch(updateSideBarStatus(false));
+    }, [data.url, router, device, dispatch]);
 
     return (
-        <>
-            {list.map((item) => (
-                <ListItem
-                    button
-                    key={item.text}
-                    className={styles.listItem}
-                    component="a"
-                    onClick={() =>
-                        handleClick(
-                            Array.isArray(item.url) ? item.url[0] : item.url
-                        )
-                    }
-                >
-                    <ListItemIcon
-                        className={
-                            checkURLActivity(router.pathname, item.url)
-                                ? styles.listItemIconSelected
-                                : styles.listItemIcon
-                        }
-                    >
-                        {item.icon}
-                    </ListItemIcon>
-                    <ListItemText>{item.text}</ListItemText>
-                </ListItem>
-            ))}
-        </>
+        <StyledListItemButton onClick={handleClick}>
+            <StyledListemIcon>{data.icon}</StyledListemIcon>
+            <ListItemText>{data.text}</ListItemText>
+        </StyledListItemButton>
     );
 };
 

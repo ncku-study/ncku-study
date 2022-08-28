@@ -5,6 +5,7 @@ import { initState as initLayoutState } from '@/redux/reducers/layout';
 import customRender from '@/tests/utils/customRender';
 import routerMockProps from '@/tests/utils/routerMockProps';
 import { Mode } from '@/tests/utils/userSession';
+import * as useMediaHook from '@/utils/useMedia';
 
 const pushedRoute = jest.fn();
 const pathnameMock = jest.fn().mockReturnValue('/');
@@ -38,6 +39,7 @@ describe('GlobalLayout', () => {
         pathnameMock.mockReturnValue('/admin/login');
         customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: { ...initLayoutState.user, mode: Mode.admin },
             },
         });
@@ -48,9 +50,10 @@ describe('GlobalLayout', () => {
     });
 
     it('renders admin layout after signed in (user mode)', () => {
-        pathnameMock.mockReturnValue('/admin');
+        pathnameMock.mockReturnValue('/');
         customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: { ...initLayoutState.user, isLoggedIn: true },
             },
         });
@@ -67,6 +70,7 @@ describe('GlobalLayout', () => {
         pathnameMock.mockReturnValue('/admin');
         customRender(<GlobalLayout />, {
             layout: {
+                ...initLayoutState,
                 user: {
                     ...initLayoutState.user,
                     isLoggedIn: true,
@@ -81,5 +85,45 @@ describe('GlobalLayout', () => {
         expect(
             screen.getByRole('button', { name: '回到首頁' })
         ).toBeInTheDocument();
+    });
+});
+
+describe('SideBar', () => {
+    it('renders sidebar open on PC', () => {
+        pathnameMock.mockReturnValue('/');
+        customRender(<GlobalLayout />, {
+            layout: {
+                ...initLayoutState,
+                isSideBarOpen: true,
+            },
+        });
+
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
+    });
+
+    it('renders sidebar closed on mobile', () => {
+        pathnameMock.mockReturnValue('/');
+        jest.spyOn(useMediaHook, 'default').mockReturnValue('mobile');
+        customRender(<GlobalLayout />, {
+            layout: initLayoutState,
+        });
+
+        expect(
+            screen.queryByRole('button', { name: '聯絡我們' })
+        ).not.toBeInTheDocument();
+    });
+
+    it('update sidebar status when resizing', () => {
+        pathnameMock.mockReturnValue('/');
+        customRender(<GlobalLayout />, {
+            layout: initLayoutState,
+        });
+
+        global.innerWidth = 400;
+        global.dispatchEvent(new Event('resize'));
+
+        expect(
+            screen.queryByRole('button', { name: '聯絡我們' })
+        ).not.toBeInTheDocument();
     });
 });
