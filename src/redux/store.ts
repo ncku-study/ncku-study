@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import layoutReducer from './reducers/layout';
+import modalReducer from './reducers/modal';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const genStore = (preloadedState: any) => {
@@ -8,6 +9,7 @@ export const genStore = (preloadedState: any) => {
         preloadedState,
         reducer: {
             layout: layoutReducer,
+            modal: modalReducer,
         },
     });
 };

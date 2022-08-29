@@ -38,6 +38,10 @@
             { "namedComponents": "arrow-function" }
         ],
         "react/require-default-props": "off",
+        "react/jsx-no-useless-fragment": [
+            "error",
+            { "allowExpressions": true }
+        ],
         "import/no-anonymous-default-export": [
             "error",
             { "allowArrowFunction": true }
