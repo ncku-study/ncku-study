@@ -1,62 +1,102 @@
-import { forwardRef, useCallback, useRef, useState } from 'react';
-import InputBar from './InputBar';
-import { Button, ClearIcon, Container, SearchIconYellow } from './style';
+import {
+    FormEvent,
+    forwardRef,
+    MouseEvent,
+    MutableRefObject,
+    useCallback,
+    useRef,
+    useState,
+} from 'react';
 
-const SearchBar = forwardRef(
-    ({ className, width, onSubmit, onChange, value }, ref) => {
-        const [hidden, setHidden] = useState(false);
-        const originValue = useRef(value);
-        const inputRef = useRef(undefined);
+import {
+    Button,
+    Container,
+    InputField,
+    StyledClearIcon,
+    StyledSearchIcon,
+} from './style';
+
+export interface SearchBarProps {
+    className?: string;
+    width?: number | string;
+
+    value?: string;
+    onChange?: (value: string) => void;
+    onSubmit: (value: string) => void;
+}
+
+const SearchBar = forwardRef<HTMLInputElement | null, SearchBarProps>(
+    (
+        {
+            className,
+            width,
+
+            value,
+            onChange: handleChange,
+            onSubmit: handleSubmit,
+        },
+        ref
+    ) => {
+        const [isInputFocused, setInputFocused] = useState(false);
+        const parentRef = ref as MutableRefObject<HTMLInputElement> | undefined;
+        const inputRef = useRef<HTMLInputElement>(null);
 
         const handleSearchClick = useCallback(
-            (e) => {
-                const targetRef = ref || inputRef;
+            (e: FormEvent) => {
                 e.preventDefault();
-                if (!onSubmit) return;
-                if (
-                    !targetRef ||
-                    !targetRef.current ||
-                    !targetRef.current.value
-                )
-                    return;
-                onSubmit(targetRef.current.value);
-            },
-            [onSubmit, ref, inputRef]
-        );
-        const handleClearClick = useCallback(
-            (e) => {
-                const targetRef = ref || inputRef;
-                const demoEvent = {
-                    target: {
-                        value: '',
-                    },
-                };
 
-                if (e) e.preventDefault();
-                if (originValue === undefined) {
-                    targetRef.current.value = '';
-                    demoEvent.target.value = undefined;
+                if (value) {
+                    handleSubmit(value);
+                    return;
                 }
-                if (onChange) onChange(demoEvent);
+
+                const targetRef = parentRef || inputRef;
+                if (!targetRef.current?.value) return;
+
+                handleSubmit(targetRef.current.value);
             },
-            [onChange, originValue, ref, inputRef]
+            [handleSubmit, parentRef, value]
+        );
+
+        const handleClearClick = useCallback(
+            (e: MouseEvent) => {
+                e.preventDefault();
+
+                if (handleChange) {
+                    handleChange('');
+                    return;
+                }
+
+                const targetRef = parentRef || inputRef;
+                if (!targetRef.current?.value) return;
+
+                targetRef.current.value = '';
+            },
+            [parentRef, handleChange]
         );
 
         return (
-            <Container className={className} style={{ width }}>
-                <InputBar
-                    ref={ref || inputRef}
-                    onChange={onChange}
-                    setHidden={setHidden}
+            <Container
+                className={className}
+                style={{ width }}
+                onSubmit={handleSearchClick}
+            >
+                <InputField
+                    ref={value && handleChange ? null : ref || inputRef}
                     value={value}
-                    handleSearchClick={handleSearchClick}
-                    originValue={originValue}
+                    onChange={(e) => handleChange?.(e.target.value)}
+                    onFocus={() => setInputFocused(true)}
+                    onBlur={() => setInputFocused(false)}
                 />
-                <Button hidden={!hidden} onClick={handleClearClick}>
-                    <ClearIcon fontSize="large" />
+                <Button
+                    type="button"
+                    hidden={!isInputFocused}
+                    onMouseDown={handleClearClick}
+                >
+                    <StyledClearIcon fontSize="large" />
                 </Button>
-                <Button hidden={hidden} onClick={handleSearchClick}>
-                    <SearchIconYellow fontSize="large" />
+                <Button hidden={isInputFocused}>
+                    <StyledSearchIcon fontSize="large" />
                 </Button>
             </Container>
         );

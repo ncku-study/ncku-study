@@ -1,14 +1,17 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 import {
+    initSideBarStatus,
     initUser,
     updateLoginStatus,
     updateMode,
+    updateSideBarStatus,
 } from '@/redux/actions/layout';
 import { Mode, User } from '~/lib/session';
 
 interface LayoutState {
     user: User;
+    isSideBarOpen: boolean;
 }
 
 export const initState: LayoutState = {
@@ -17,6 +20,7 @@ export const initState: LayoutState = {
         isLoggedIn: false,
         mode: Mode.normal,
     },
+    isSideBarOpen: false,
 };
 
 const layoutReducer = createReducer(initState, (builder) =>
@@ -29,6 +33,12 @@ const layoutReducer = createReducer(initState, (builder) =>
         })
         .addCase(updateMode, (state, action) => {
             state.user = { ...state.user, mode: action.payload };
+        })
+        .addCase(initSideBarStatus, (state, action) => {
+            state.isSideBarOpen = action.payload;
+        })
+        .addCase(updateSideBarStatus, (state, action) => {
+            state.isSideBarOpen = action.payload;
         })
 );
 

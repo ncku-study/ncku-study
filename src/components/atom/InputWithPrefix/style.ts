@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import styled from '@emotion/styled';
 
 // eslint-disable-next-line import/prefer-default-export

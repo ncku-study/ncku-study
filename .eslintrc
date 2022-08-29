@@ -37,6 +37,7 @@
             "error",
             { "namedComponents": "arrow-function" }
         ],
+        "react/require-default-props": "off",
         "import/no-anonymous-default-export": [
             "error",
             { "allowArrowFunction": true }
