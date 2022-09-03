@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - TypeIcon render with first specify theme must render correctly 1`] = `
+<div>
+  <div
+    class="css-xn8qaq"
+  />
+</div>
+`;
+
+exports[`test for atom - TypeIcon render with second specify theme must render correctly 1`] = `
+<div>
+  <div
+    class="css-bhn2km"
+  />
+</div>
+`;
+
+exports[`test for atom - TypeIcon render with third specify theme must render correctly 1`] = `
+<div>
+  <div
+    class="css-1t9gcyy"
+  />
+</div>
+`;
