@@ -33,7 +33,6 @@ const ReaderModal: FC<ReaderModalProps> = ({
         <Modal
             isOpen={isModalOpen}
             contentLabel="Minimal Modal Example"
-            overlayClassName="Overlay"
             style={ModalStyle}
             onRequestClose={handleRequestClose}
             onAfterClose={handleAfterClose}
