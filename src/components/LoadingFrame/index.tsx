@@ -11,7 +11,7 @@ const LoadingFrame: FC<LoadingFrameProps> = ({ isFinishRequest, children }) => {
     if (!isFinishRequest) {
         return (
             <LoadingContainer>
-                <Icon style={{ marginTop: '0' }} />
+                <Icon />
             </LoadingContainer>
         );
     }
