@@ -1,20 +1,14 @@
-import type { CSSProperties, FC } from 'react';
+import type { FC } from 'react';
+import { Circle, Ripple, Scope } from './style';
 
-interface IconProps {
-    style: CSSProperties;
-}
-
-const Icon: FC<IconProps> = ({ style }) => {
+const Icon: FC = () => {
     return (
-        <div className="lds-css-ng-scope" style={style}>
-            <div
-                style={{ width: '100%', height: '100%' }}
-                className="lds-ripple"
-            >
-                <div style={{ borderColor: '#e1af13' }} />
-                <div style={{ borderColor: '#e1af13' }} />
-            </div>
-        </div>
+        <Scope>
+            <Ripple>
+                <Circle />
+                <Circle />
+            </Ripple>
+        </Scope>
     );
 };
 

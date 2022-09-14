@@ -1,5 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-export const ModalStyle = {
+import type { Styles } from 'react-modal';
+
+export const ModalStyle: Styles = {
     overlay: {
         display: 'flex',
         alignItems: 'center',

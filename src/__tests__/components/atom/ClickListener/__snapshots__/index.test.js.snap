@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - ClickListener render Badge with event must be work correctly and must be same with non-props 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    <div>
+      test
+    </div>
+  </button>
+</div>
+`;
+
+exports[`test for atom - ClickListener render Badge without props must be same 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    <div>
+      test
+    </div>
+  </button>
+</div>
+`;
