@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
 
 import layoutReducer from './reducers/layout';
 import modalReducer from './reducers/modal';
@@ -11,6 +12,7 @@ export const genStore = (preloadedState: any) => {
             layout: layoutReducer,
             modal: modalReducer,
         },
+        middleware: [thunk],
     });
 };
 
