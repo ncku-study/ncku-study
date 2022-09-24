@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import layoutReducer from './reducers/layout';
 import modalReducer from './reducers/modal';
+import studyReducer from './reducers/study';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const genStore = (preloadedState: any) => {
@@ -11,6 +12,7 @@ export const genStore = (preloadedState: any) => {
         reducer: {
             layout: layoutReducer,
             modal: modalReducer,
+            study: studyReducer,
         },
         middleware: [thunk],
     });

@@ -37,7 +37,7 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
             <ListContainer
                 height={parentHeight}
                 itemCount={data.length}
-                itemSize={160}
+                itemSize={250}
                 width={parentWidth - 10}
                 onItemsRendered={handleItemsRendered}
                 itemData={data}
