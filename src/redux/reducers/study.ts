@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { updateStudyData } from '../actions/study';
+import { Study, updateStudyData } from '../actions/study';
 
 interface StudyState {
-    data: Array<unknown>;
+    data: Array<Study>;
 }
 
 export const initState: StudyState = {

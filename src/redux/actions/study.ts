@@ -1,5 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const updateStudyData =
-    createAction<Array<unknown>>('UPDATE_STUDY_DATA');
-export const updateLoginStatus = createAction<boolean>('UPDATE_LOGINSTATUS');
+import { Study as StudyModel } from '~/database/models';
+
+export type Study = Partial<StudyModel>;
+
+export const updateStudyData = createAction<Array<Study>>('UPDATE_STUDY_DATA');

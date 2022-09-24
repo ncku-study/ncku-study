@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { Action, ThunkDispatch } from '@reduxjs/toolkit';
 
-import { updateStudyData } from '../actions/study';
+import { Study, updateStudyData } from '../actions/study';
 import { RootState } from '../store';
 
 export const fetchStudyData = (num?: number, from?: string) => {
@@ -12,7 +12,7 @@ export const fetchStudyData = (num?: number, from?: string) => {
         fetch(url)
             .then((res) => res.json())
             .then((res) => {
-                dispatch(updateStudyData(res as Array<unknown>));
+                dispatch(updateStudyData(res as Array<Study>));
             })
             .catch((e) => new Error(e));
     };
