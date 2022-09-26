@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for atom - Option render Option must always be same 1`] = `
+<div>
+  <li
+    class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-19wq24w-MuiButtonBase-root-MuiMenuItem-root"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </li>
+</div>
+`;

@@ -28,7 +28,9 @@ const PairInput: FC<PropsType> = ({ textProps, eventProps, otherProps }) => {
     const subWording = textProps?.subWording;
     const enableDelete = eventProps?.enableDelete;
     const onChange = eventProps?.onChange as OnChangeType;
-    const objValue = otherProps?.objValue;
+    const objValue = otherProps?.objValue
+        ? otherProps?.objValue
+        : { name: '', value: '' };
     const { name, value } = objValue as ValueType;
 
     const nameWording = subWording ? subWording[0] : '';
