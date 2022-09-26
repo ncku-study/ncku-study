@@ -16,17 +16,6 @@ describe('test for atom - Badge', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('render Badge with specify styleProps must render correctly', () => {
-        const className = 'testingClassName';
-        const value = 'test';
-        const { container } = render(
-            <Badge styleProps={{ className }} textProps={{ value }} />
-        );
-
-        expect(screen.getByText(value).classList).toContain(className);
-        expect(container).toMatchSnapshot();
-    });
-
     it('render Badge with specify eventProps must work correctly', () => {
         const mockClose = jest.fn();
         render(<Badge eventProps={{ onClick: mockClose }} />);
