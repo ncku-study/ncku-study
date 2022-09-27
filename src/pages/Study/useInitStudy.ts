@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import { Study, updateStudyData } from '@/redux/actions/study';
 import { useAppDispatch } from '@/redux/hooks';
-import { useEffectOnce } from '~/src/utils';
+import { useDidMount } from '@/utils/index';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -16,7 +16,7 @@ function useInitStudy() {
         }
     );
 
-    useEffectOnce(() => {
+    useDidMount(() => {
         if (studyDataInit) dispatch(updateStudyData(studyDataInit));
     });
 }
