@@ -1,6 +1,6 @@
 import { EffectCallback, useEffect, useRef } from 'react';
 
-function useEffectOnce(effect: EffectCallback) {
+function useDidMount(effect: EffectCallback) {
     const ref = useRef(false);
 
     useEffect(() => {
@@ -14,4 +14,4 @@ function useEffectOnce(effect: EffectCallback) {
     }, [effect]);
 }
 
-export default useEffectOnce;
+export default useDidMount;
