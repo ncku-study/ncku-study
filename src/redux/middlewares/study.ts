@@ -1,14 +1,19 @@
+/* eslint-disable import/prefer-default-export */
 import { Action, ThunkDispatch } from '@reduxjs/toolkit';
-import { Mode } from '~/lib/session';
-import { updateMode } from '../actions/layout';
+
+import { Study, updateStudyData } from '../actions/study';
 import { RootState } from '../store';
 
-/* eslint-disable import/prefer-default-export */
-export const fetchStudyInit = () => {
+export const fetchStudyData = (num?: number, from?: string) => {
     return (dispatch: ThunkDispatch<RootState, unknown, Action>) => {
-        fetch('/api/study')
+        const url = `/api/study${from ? `?from=${from}` : ''}${
+            num ? `&num=${num}` : ''
+        }`;
+        fetch(url)
             .then((res) => res.json())
-            .then(() => dispatch(updateMode(Mode.admin)))
+            .then((res) => {
+                dispatch(updateStudyData(res as Array<Study>));
+            })
             .catch((e) => new Error(e));
     };
 };

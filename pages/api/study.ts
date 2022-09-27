@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
+import { Op } from 'sequelize';
 
 import { Category, Statistic, Study } from '@/db/models';
 
@@ -7,8 +8,10 @@ const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router.get(async (req, res) => {
     const {
-        query: { cate, stat },
+        query: { from, cate, stat, num },
     } = req;
+
+    const starter = await Study.findByPk(from as string);
 
     const studies = await Study.findAll({
         include: [
@@ -28,6 +31,15 @@ router.get(async (req, res) => {
                 }),
             },
         ],
+        ...(starter && {
+            where: {
+                createdAt: {
+                    [Op.lt]: starter.createdAt,
+                },
+            },
+        }),
+        ...(num && { limit: Number(num) }),
+        order: [['created_at', 'DESC']],
     });
 
     res.statusCode = 200;

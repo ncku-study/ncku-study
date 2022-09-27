@@ -1,18 +1,20 @@
 import type { FC } from 'react';
 
-import LoadingFrame from '@/components/LoadingFrame';
 import ReaderModal from '@/components/modals/ReaderModal';
 import StudyReader from '@/components/readers/StudyReader';
 import { useAppSelector } from '@/redux/hooks';
 import { loginStatusSelector } from '@/redux/selectors/layout';
 import CardList from './CardList';
 import { Container } from './style';
+import useInitStudy from './useInitStudy';
 
 const Study: FC = () => {
     const isAdmin = useAppSelector(loginStatusSelector);
 
+    useInitStudy();
+
     return (
-        <LoadingFrame isFinishRequest>
+        <>
             <Container>
                 <div />
                 <CardList />
@@ -23,7 +25,7 @@ const Study: FC = () => {
                 onClose={() => undefined}
                 readerComponent={StudyReader}
             />
-        </LoadingFrame>
+        </>
     );
 };
 
