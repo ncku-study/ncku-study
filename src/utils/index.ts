@@ -1,13 +1,7 @@
 import useModalState from './redux/components/modal/useModalState';
-import useEffectOnce from './useEffectOnce';
+import useDidMount from './useDidMount';
 import useMedia from './useMedia';
 import useParentSize from './useParentSize';
 import useWindowWidth from './useWindowWidth';
 
-export {
-    useWindowWidth,
-    useMedia,
-    useModalState,
-    useParentSize,
-    useEffectOnce,
-};
+export { useWindowWidth, useMedia, useModalState, useParentSize, useDidMount };
