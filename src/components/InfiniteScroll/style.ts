@@ -2,9 +2,10 @@
 import styled from '@emotion/styled';
 import { FixedSizeList } from 'react-window';
 
+import { Study } from '@/redux/actions/study';
 import { ScrollBarStyle } from '~/src/theme/global';
 
-export const ListContainer = styled(FixedSizeList)({
+export const ListContainer = styled(FixedSizeList<Array<Study>>)({
     overflowX: 'hidden',
 
     '@media (max-width: 576px)': {

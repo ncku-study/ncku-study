@@ -10,7 +10,7 @@ function useFetchData(overscanStopIndex: number) {
 
     useEffect(() => {
         if (overscanStopIndex === studyData.length - 2) {
-            dispatch(fetchStudyData(3, studyData[studyData.length - 1].id));
+            dispatch(fetchStudyData(5, studyData[studyData.length - 1].id));
         }
     }, [dispatch, overscanStopIndex, studyData, studyData.length]);
 }

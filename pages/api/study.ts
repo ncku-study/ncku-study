@@ -53,13 +53,13 @@ router.get(async (req, res) => {
                 confirm: study.confirm,
                 content: study.content,
                 timestamp: study.createdAt,
-                category: study.categories.map((category) => {
+                categories: study.categories.map((category) => {
                     return {
                         id: category.id,
                         name: category.name,
                     };
                 }),
-                statistic: study.statistics.map((statistic) => {
+                statistics: study.statistics.map((statistic) => {
                     return {
                         id: statistic.id,
                         name: statistic.name,
