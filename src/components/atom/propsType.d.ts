@@ -1,7 +1,6 @@
 import { KeyboardEventHandler, MouseEventHandler } from 'react';
 
 export type StyleProps = {
-    className?: string;
     height?: string;
     width?: string;
     display?: string;
@@ -37,6 +36,7 @@ export type OtherProps = {
 };
 
 interface PropsType {
+    className?: string;
     styleProps?: StyleProps;
     eventProps?: EventProps;
     textProps?: TextProps;

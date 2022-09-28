@@ -5,8 +5,7 @@ import { BadgeStyle, CloseIcon } from './style';
 
 export const testId = 'Badge/testId';
 
-const Badge: FC<PropsType> = ({ styleProps, textProps, eventProps }) => {
-    const className = styleProps?.className;
+const Badge: FC<PropsType> = ({ textProps, eventProps, className }) => {
     const value = textProps?.value;
     const onClick = eventProps?.onClick;
     return (

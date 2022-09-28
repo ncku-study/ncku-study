@@ -6,12 +6,11 @@ import PropsType from '../propsType';
 import { InputFieldWithPrefix } from './style';
 
 const InputWithPrefix: FC<PropsType> = ({
-    styleProps,
+    className,
     textProps,
     eventProps,
     otherProps,
 }) => {
-    const className = styleProps?.className;
     const elementAttrs = otherProps?.elementAttrs;
     const onChange =
         eventProps?.onChange as ChangeEventHandler<HTMLInputElement>;
