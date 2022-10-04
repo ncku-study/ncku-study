@@ -10,7 +10,7 @@ describe('test for atom - Label', () => {
 
     it('render Label with specify textProps', () => {
         const value = 'this is a test value';
-        const { container } = render(<Label textProps={{ value }} />);
+        const { container } = render(<Label value={value} />);
 
         expect(screen.getByText(value)).toBeTruthy();
         expect(container).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('test for atom - Label', () => {
         const enableDelete = true;
         const mockDelete = jest.fn();
         const { container } = render(
-            <Label eventProps={{ enableDelete, onDelete: mockDelete }} />
+            <Label enableDelete={enableDelete} onDelete={mockDelete} />
         );
         mockDelete.mockClear();
         expect(mockDelete).toBeCalledTimes(0);
@@ -32,7 +32,7 @@ describe('test for atom - Label', () => {
 
     it('render Label with specify eventProps (disable delete button)', () => {
         const enableDelete = false;
-        const { container } = render(<Label eventProps={{ enableDelete }} />);
+        const { container } = render(<Label enableDelete={enableDelete} />);
 
         expect(screen.queryByRole('button')).toBeFalsy();
         expect(container).toMatchSnapshot();

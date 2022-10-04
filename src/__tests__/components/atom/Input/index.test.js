@@ -12,7 +12,7 @@ describe('test for atom - Input', () => {
         const value = 'testing value here !';
         const wording = 'this is the wording';
 
-        const { container } = render(<Input textProps={{ wording, value }} />);
+        const { container } = render(<Input wording={wording} value={value} />);
 
         expect(screen.getByDisplayValue(value)).toBeTruthy();
         expect(screen.getByLabelText(wording)).toBeTruthy();
@@ -23,12 +23,7 @@ describe('test for atom - Input', () => {
         const mockChange = jest.fn();
         const value = 'testing value here !';
 
-        render(
-            <Input
-                textProps={{ value }}
-                eventProps={{ onChange: mockChange }}
-            />
-        );
+        render(<Input value={value} onChange={mockChange} />);
 
         mockChange.mockClear();
         fireEvent.change(screen.getByDisplayValue(value), {
@@ -48,7 +43,7 @@ describe('test for atom - Input', () => {
         };
 
         const { container } = render(
-            <Input otherProps={{ elementAttrs }} textProps={{ value }} />
+            <Input elementAttrs={elementAttrs} value={value} />
         );
 
         expect(screen.getByDisplayValue(value)).toBeTruthy();
@@ -65,7 +60,7 @@ describe('test for atom - Input', () => {
         };
 
         const { container } = render(
-            <Input otherProps={{ elementAttrs }} textProps={{ value }} />
+            <Input elementAttrs={elementAttrs} value={value} />
         );
 
         expect(screen.queryByDisplayValue(value)).toBeFalsy();

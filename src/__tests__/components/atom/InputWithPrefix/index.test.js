@@ -13,7 +13,7 @@ describe('test for atom - InputWithPrefix', () => {
         const prefix = 'this is a test prefix';
 
         const { container } = render(
-            <InputWithPrefix textProps={{ value, prefix }} />
+            <InputWithPrefix value={value} prefix={prefix} />
         );
 
         expect(screen.getByText(prefix)).toBeTruthy();
@@ -26,10 +26,7 @@ describe('test for atom - InputWithPrefix', () => {
         const value = 'this is a test value';
 
         const { container } = render(
-            <InputWithPrefix
-                textProps={{ value }}
-                eventProps={{ onChange: mockChange }}
-            />
+            <InputWithPrefix value={value} onChange={mockChange} />
         );
         mockChange.mockClear();
         expect(mockChange).toBeCalledTimes(0);
@@ -52,10 +49,7 @@ describe('test for atom - InputWithPrefix', () => {
         };
 
         const { container } = render(
-            <InputWithPrefix
-                otherProps={{ elementAttrs }}
-                textProps={{ value }}
-            />
+            <InputWithPrefix elementAttrs={elementAttrs} value={value} />
         );
 
         expect(screen.getByDisplayValue(value)).toBeTruthy();
@@ -72,10 +66,7 @@ describe('test for atom - InputWithPrefix', () => {
         };
 
         const { container } = render(
-            <InputWithPrefix
-                otherProps={{ elementAttrs }}
-                textProps={{ value }}
-            />
+            <InputWithPrefix elementAttrs={elementAttrs} value={value} />
         );
 
         expect(screen.queryByDisplayValue(value)).toBeFalsy();

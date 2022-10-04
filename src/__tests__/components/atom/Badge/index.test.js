@@ -10,7 +10,7 @@ describe('test for atom - Badge', () => {
 
     it('render Badge with specify textProps must render correctly', () => {
         const value = 'this is a super weird test';
-        const { container } = render(<Badge textProps={{ value }} />);
+        const { container } = render(<Badge value={value} />);
 
         expect(screen.getByText(value)).toBeTruthy();
         expect(container).toMatchSnapshot();
@@ -18,7 +18,7 @@ describe('test for atom - Badge', () => {
 
     it('render Badge with specify eventProps must work correctly', () => {
         const mockClose = jest.fn();
-        render(<Badge eventProps={{ onClick: mockClose }} />);
+        render(<Badge onClick={mockClose} />);
 
         mockClose.mockClear();
         fireEvent.click(screen.getByRole('button'));
