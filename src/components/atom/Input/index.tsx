@@ -1,15 +1,15 @@
-import { ChangeEventHandler, FC } from 'react';
-import PropsType from '../propsType';
+import { StandardTextFieldProps } from '@mui/material/TextField';
+import { FC } from 'react';
 import TextField, { useStyles } from './style';
 
-const Input: FC<PropsType> = ({ textProps, eventProps, otherProps }) => {
-    const classes = useStyles();
+export interface InputProps extends StandardTextFieldProps {
+    elementAttrs?: object;
+    value?: string;
+    wording?: string;
+}
 
-    const value = textProps?.value;
-    const wording = textProps?.wording;
-    const onChange =
-        eventProps?.onChange as ChangeEventHandler<HTMLInputElement>;
-    const elementAttrs = otherProps?.elementAttrs;
+const Input: FC<InputProps> = ({ value, wording, elementAttrs, onChange }) => {
+    const classes = useStyles();
 
     const attribute = {
         value,

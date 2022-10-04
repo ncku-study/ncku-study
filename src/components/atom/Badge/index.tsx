@@ -1,13 +1,14 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import ClickListener from '../ClickListener';
-import PropsType from '../propsType';
 import { BadgeStyle, CloseIcon } from './style';
 
 export const testId = 'Badge/testId';
 
-const Badge: FC<PropsType> = ({ textProps, eventProps, className }) => {
-    const value = textProps?.value;
-    const onClick = eventProps?.onClick;
+export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+    value?: string;
+}
+
+const Badge: FC<BadgeProps> = ({ value, className, onClick }) => {
     return (
         <BadgeStyle className={className}>
             <>

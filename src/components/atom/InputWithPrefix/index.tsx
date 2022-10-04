@@ -1,22 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import TextField from '@mui/material/TextField';
-import { ChangeEventHandler, FC } from 'react';
-import PropsType from '../propsType';
+import TextField, { StandardTextFieldProps } from '@mui/material/TextField';
+import { FC } from 'react';
 
 import { InputFieldWithPrefix } from './style';
 
-const InputWithPrefix: FC<PropsType> = ({
-    className,
-    textProps,
-    eventProps,
-    otherProps,
-}) => {
-    const elementAttrs = otherProps?.elementAttrs;
-    const onChange =
-        eventProps?.onChange as ChangeEventHandler<HTMLInputElement>;
-    const prefix = textProps?.prefix;
-    const value = textProps?.value;
+export interface InputWithPrefixProps extends StandardTextFieldProps {
+    elementAttrs?: object;
+    prefix?: string;
+    value?: string;
+}
 
+const InputWithPrefix: FC<InputWithPrefixProps> = ({
+    className,
+    elementAttrs,
+    prefix,
+    value,
+    onChange,
+}) => {
     const attribute = {
         value,
         className,

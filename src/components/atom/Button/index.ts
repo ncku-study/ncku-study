@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { color } from '~/src/theme/global';
 import { ThemeType } from '~/src/theme/theme';
-import { StyleProps } from '../propsType';
+import { StyleProps } from '../muiStyleProps';
 
 const theme: ThemeType = {
     primary: {
