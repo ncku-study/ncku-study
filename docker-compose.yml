@@ -24,6 +24,14 @@ services:
         MYSQL_USER: nckutrans
         MYSQL_PASSWORD: Ncku123456
         MYSQL_ROOT_PASSWORD: Ncku123456
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+      networks:
+        nckutrans:
+          ipv4_address: 10.5.0.7
 networks:
   nckutrans:
     driver: bridge
