@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+    app:
+      image: ncku-study-env
+      container_name: app
+      ports:
+        - "3000:3000"
+      networks:
+        nckutrans:
+          ipv4_address: 10.5.0.5
+      depends_on:
+        - mysql
+    mysql:
+      image: mysql
+      container_name: mysqldatabase
+      ports:
+        - "3306:3306"
+      networks:
+        nckutrans:
+          ipv4_address: 10.5.0.6
+      restart: always
+      environment: 
+        MYSQL_DATABASE: nckutrans
+        MYSQL_USER: nckutrans
+        MYSQL_PASSWORD: Ncku123456
+        MYSQL_ROOT_PASSWORD: Ncku123456
+networks:
+  nckutrans:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+
