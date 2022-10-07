@@ -1,14 +1,11 @@
 import { FC, useState } from 'react';
 
-import InfiniteScroll, { ListItemComponent } from '@/components/InfiniteScroll';
+import StudyCard from '@/components/cards/StudyCard';
+import InfiniteScroll from '@/components/InfiniteScroll';
 import { useAppSelector } from '@/redux/hooks';
 import { studyDataSelector } from '@/redux/selectors/study';
 import { ScrollableContainer } from './style';
 import useFetchData from './useFetchData';
-
-const row: FC<ListItemComponent> = ({ index /* , data  */, style }) => {
-    return <div style={style}>{index}</div>;
-};
 
 const CardList: FC = () => {
     const studyData = useAppSelector(studyDataSelector);
@@ -21,7 +18,7 @@ const CardList: FC = () => {
             <InfiniteScroll
                 data={studyData}
                 setOverscanStopIndex={setOverscanStopIndex}
-                listItemComponent={row}
+                listItemComponent={StudyCard}
             />
         </ScrollableContainer>
     );

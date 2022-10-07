@@ -1,21 +1,14 @@
-import { CSSProperties, FC, useCallback, useRef } from 'react';
+import { ComponentType, FC, useCallback, useRef } from 'react';
+import { ListChildComponentProps } from 'react-window';
 
-import { useParentSize } from '~/src/utils/index';
+import { Study } from '@/redux/actions/study';
+import { useParentSize } from '@/utils/index';
 import { ListContainer } from './style';
 
-export interface ListItemComponent {
-    index: number;
-    key: never;
-    type: never;
-    props: never;
-    data: Array<unknown>;
-    style: CSSProperties;
-}
-
 interface InfiniteScrollProps {
-    data: Array<unknown>;
+    data: Array<Study>;
     setOverscanStopIndex: (stopIndex: number) => void;
-    listItemComponent: FC<ListItemComponent>;
+    listItemComponent: ComponentType<ListChildComponentProps<Array<Study>>>;
 }
 const InfiniteScroll: FC<InfiniteScrollProps> = ({
     data,
@@ -37,12 +30,12 @@ const InfiniteScroll: FC<InfiniteScrollProps> = ({
             <ListContainer
                 height={parentHeight}
                 itemCount={data.length}
-                itemSize={600}
+                itemSize={160}
                 width={parentWidth - 10}
                 onItemsRendered={handleItemsRendered}
                 itemData={data}
             >
-                {listItemComponent as never}
+                {listItemComponent}
             </ListContainer>
         </div>
     );

@@ -9,7 +9,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 function useInitStudy() {
     const dispatch = useAppDispatch();
     const { data: studyDataInit } = useSWR<Array<Study>>(
-        'http://localhost:3000/api/study?num=5',
+        'http://localhost:3000/api/study?num=12',
         fetcher,
         {
             suspense: true,
