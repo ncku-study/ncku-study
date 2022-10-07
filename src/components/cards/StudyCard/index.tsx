@@ -1,8 +1,8 @@
-import { FC, useEffect, useReducer } from 'react';
+import { FC } from 'react';
 import { ListChildComponentProps } from 'react-window';
 
 import { Study } from '@/redux/actions/study';
-import { useWindowWidth } from '@/utils/index';
+import { useMedia } from '@/utils/index';
 import {
     BadgeList,
     Card,
@@ -22,35 +22,14 @@ function contentMiddleware(content: string, maxNumber: number) {
         : `${content.slice(0, maxNumber - 1)}  (...)`;
 }
 
-function reducer(state: number, action: { type: 'PC' | 'mobile' }) {
-    switch (action.type) {
-        case 'PC':
-            return 36;
-        case 'mobile':
-            return 21;
-        default:
-            return state;
-    }
-}
-
 const StudyCard: FC<ListChildComponentProps<Array<Study>>> = ({
     index,
     data,
     style,
 }) => {
     const itemData = data[index];
-    const [wordsNumber, dispatch] = useReducer(reducer, 36);
-    const windowWidth = useWindowWidth();
+    const device = useMedia();
     const handleOpenContent = useOpenContent(itemData, index);
-
-    useEffect(() => {
-        if (!windowWidth) return;
-        if (windowWidth >= 870 && wordsNumber === 21) {
-            dispatch({ type: 'PC' });
-        } else if (windowWidth < 870 && wordsNumber === 36) {
-            dispatch({ type: 'mobile' });
-        }
-    }, [windowWidth, wordsNumber]);
 
     return (
         <Card isConfirmed={itemData.confirm === 1} style={style}>
@@ -65,7 +44,10 @@ const StudyCard: FC<ListChildComponentProps<Array<Study>>> = ({
                 </BadgeList>
                 <CardTitle>{itemData.title}</CardTitle>
                 <CardText>
-                    {contentMiddleware(itemData.content, wordsNumber)}
+                    {contentMiddleware(
+                        itemData.content,
+                        device === 'PC' ? 36 : 21
+                    )}
                 </CardText>
             </CardContent>
             <TagSpanList>
