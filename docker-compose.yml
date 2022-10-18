@@ -18,7 +18,6 @@ services:
       networks:
         nckutrans:
           ipv4_address: 10.5.0.6
-      restart: always
       environment: 
         MYSQL_DATABASE: nckutrans
         MYSQL_USER: nckutrans
@@ -26,7 +25,6 @@ services:
         MYSQL_ROOT_PASSWORD: Ncku123456
     adminer:
       image: adminer
-      restart: always
       ports:
         - 8080:8080
       networks:
