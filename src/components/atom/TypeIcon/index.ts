@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { colorMap } from '~/src/theme/global';
-import { StyleProps } from '../propsType';
+import { StyleProps } from '../muiStyleProps';
 
 export default styled.div<StyleProps>`
     display: flex;

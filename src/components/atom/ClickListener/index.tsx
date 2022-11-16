@@ -1,11 +1,8 @@
-import { FC, PropsWithChildren } from 'react';
-import { EventProps, MouseEventHandle } from '../propsType';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
-const ClickListener: FC<PropsWithChildren<EventProps>> = ({
-    children,
-    ...eventProps
-}) => {
-    const onClick = eventProps.onClick as MouseEventHandle;
+const ClickListener: FC<
+    PropsWithChildren<HTMLAttributes<HTMLButtonElement>>
+> = ({ children, onClick }) => {
     return (
         <button type="button" onClick={onClick}>
             {children}

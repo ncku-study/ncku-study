@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { color } from '~/src/theme/global';
-import { StyleProps } from '../propsType';
+import { StyleProps } from '../muiStyleProps';
 
 export const Title = styled.div<StyleProps>`
     display: ${(props) => (props.display ? props.display : 'flex')};

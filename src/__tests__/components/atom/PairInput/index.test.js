@@ -15,7 +15,7 @@ describe('test for atom - PairInput', () => {
             'this is a test subWording2',
         ];
         const { container } = render(
-            <PairInput textProps={{ wording, subWording }} />
+            <PairInput wording={wording} subWording={subWording} />
         );
 
         expect(screen.getByText(wording)).toBeTruthy();
@@ -44,8 +44,9 @@ describe('test for atom - PairInput', () => {
 
         const { container } = render(
             <PairInput
-                eventProps={{ enableDelete, onChange }}
-                otherProps={{ objValue }}
+                enableDelete={enableDelete}
+                onChange={onChange}
+                objValue={objValue}
             />
         );
         handleDelete.mockClear();
