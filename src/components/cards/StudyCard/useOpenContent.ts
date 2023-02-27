@@ -2,17 +2,18 @@ import { useCallback } from 'react';
 
 import { Study } from '@/redux/actions/study';
 import { useModalState } from '@/utils/index';
+import transIntoModalData from '@/utils/redux/components/modal/transIntoModalData';
+import useModalContext from '@/utils/redux/components/modal/useModalContext';
 import changeHeaderInfo from '@/utils/seo/header';
 import trans from '@/utils/transition';
 import wording from '~/src/wording/general.json';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function useOpenContent(itemData: Study, index: number) {
     const [, setIsModalOpen] = useModalState();
-    // const [, setModalContext] = useModalContext();
+    const [, setModalContext] = useModalContext();
 
     const handleOpenContent = useCallback(() => {
-        // setModalContext(transIntoModalData('study', itemData, index));
+        setModalContext(transIntoModalData('study', index, itemData));
 
         const strMap = {
             schoolName: wording.schoolName,
@@ -27,7 +28,7 @@ function useOpenContent(itemData: Study, index: number) {
 
         // history.push(`?id=${itemData.id}`);
         setIsModalOpen(true);
-    }, [itemData, setIsModalOpen]);
+    }, [index, itemData, setIsModalOpen, setModalContext]);
 
     return handleOpenContent;
 }

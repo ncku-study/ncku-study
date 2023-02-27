@@ -38,7 +38,7 @@ const StudyCard: FC<ListChildComponentProps<Array<Study>>> = ({
                     {itemData.categories?.map((itemObj) => (
                         <StatisticBadge
                             key={itemObj.name}
-                            textProps={{ value: itemObj.name }}
+                            value={itemObj.name}
                         />
                     ))}
                 </BadgeList>
