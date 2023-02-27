@@ -27,3 +27,41 @@ export const StudyReaderLayout = styled('div')<StudyReaderLayoutProps>(
 export const ArrowIcon = styled(NavigateBefore)(({ direction }) => ({
     transform: direction === 'left' ? 'none' : 'rotate(180deg)',
 }));
+
+export const StudyReaderContext = styled('div')({
+    padding: '25px 0px',
+
+    display: 'flex',
+    position: 'relative',
+    flexDirection: 'column',
+    gridColumnStart: 2,
+});
+
+export const StudyReaderContent = styled('div')({
+    height: '100%',
+    margin: '5px 0px',
+
+    overflowY: 'auto',
+    textAlign: 'justify',
+    letterSpacing: '2.5px',
+    lineHeight: '2.8rem',
+    lineBreak: 'anywhere',
+    whiteSpace: 'pre-line',
+
+    '::-webkit-scrollbar': {
+        width: '1px',
+        height: '1px',
+
+        border: 'none',
+        backgroundColor: 'transparent',
+    },
+    '::-webkit-scrollbar-thumb': {
+        borderRadius: '10px',
+        backgroundColor: '#555',
+        opacity: 0.5,
+    },
+    '::-webkit-scrollbar-track': {
+        border: '0px solid',
+        backgroundColor: 'transparent',
+    },
+});

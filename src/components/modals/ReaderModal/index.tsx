@@ -32,8 +32,9 @@ const ReaderModal: FC<ReaderModalProps> = ({
     return (
         <Modal
             isOpen={isModalOpen}
-            contentLabel="Minimal Modal Example"
+            className="Modal"
             style={ModalStyle}
+            contentLabel="Minimal Modal Example"
             onRequestClose={handleRequestClose}
             onAfterClose={handleAfterClose}
         >

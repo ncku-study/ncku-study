@@ -1,14 +1,15 @@
 import { createAction } from '@reduxjs/toolkit';
 
-type Category = {
+export type Category = {
     id: string;
     name: string;
 };
 
-type Statistic = {
+export type Statistic = {
     id: string;
     name: string;
     type: string;
+    value: string;
 };
 
 export type Study = {
