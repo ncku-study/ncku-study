@@ -23,7 +23,7 @@ const StudyReader: FC = (/* { isAdmin } */) => {
         timestamp,
         categories,
         statistics,
-    } = context as unknown as Study;
+    } = context as Study;
 
     return (
         <StudyReaderLayout isAdmin={false}>

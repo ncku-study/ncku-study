@@ -4,10 +4,7 @@ import { useCallback } from 'react';
 
 import { ModalContext, setModalContext } from '@/redux/actions/modal';
 
-function useModalContext(): [
-    ModalContext | undefined,
-    (context: ModalContext) => void
-] {
+function useModalContext(): [ModalContext, (context: ModalContext) => void] {
     const dispatch = useAppDispatch();
     const modalContext = useAppSelector(modalContextSelector);
 

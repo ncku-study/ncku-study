@@ -10,12 +10,17 @@ import {
 
 interface ModalState {
     isOpen: boolean;
-    context?: ModalContext;
+    context: ModalContext;
 }
+
+const initModalContext: ModalContext = {
+    index: -1,
+    rawData: undefined,
+};
 
 export const initState: ModalState = {
     isOpen: false,
-    context: undefined,
+    context: initModalContext,
 };
 
 const modalReducer = createReducer(initState, (builder) =>

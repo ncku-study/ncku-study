@@ -1,10 +1,11 @@
+import { Major } from '@/redux/actions/major';
+import { ModalContext } from '@/redux/actions/modal';
 import { Study } from '@/redux/actions/study';
-import { ModalContext } from '~/src/redux/actions/modal';
 
 function transIntoModalData(
     type: string,
     index: number,
-    data: Study | unknown // reserve for major
+    data: Study | Major
 ): ModalContext {
     switch (type) {
         case 'study':
@@ -15,6 +16,7 @@ function transIntoModalData(
             };
         case 'major':
             return {
+                ...data,
                 index,
                 rawData: data,
             };
