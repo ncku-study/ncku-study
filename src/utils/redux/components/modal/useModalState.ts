@@ -10,7 +10,7 @@ function useModalState(): [boolean, (open: boolean) => void] {
 
     const setModalOpen = useCallback(
         (open: boolean) => {
-            dispatch(open ? openModal : closeModal);
+            dispatch(open ? openModal() : closeModal());
         },
         [dispatch]
     );
